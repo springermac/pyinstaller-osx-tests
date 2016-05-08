@@ -8,8 +8,7 @@ cache:
   directories:
     - $HOME/Library/Caches/pip
     - $HOME/.pip-accel
-    - /opt/local/var/macports/distfiles
-    - /opt/local/var/macports/software
+    - $HOME/macports_cache
     - /Library/Caches/Homebrew
 
 env:

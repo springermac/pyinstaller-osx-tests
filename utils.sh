@@ -3,6 +3,7 @@
 
 function install_dependencies {
     if [ $DEPENDENCIES = macports ]; then
+        sudo cp $HOME/macports_cache /opt/local/var/macports/software
         sudo port -qp install py$PYTHON_VERSION-crypto
         sudo port -qp install py$PYTHON_VERSION-boto
         sudo port -qp install py$PYTHON_VERSION-boto3
@@ -32,6 +33,7 @@ function install_dependencies {
         sudo port -qp install py$PYTHON_VERSION-gevent
         sudo port -qp install gstreamer1
         sudo port -qp install py$PYTHON_VERSION-gobject3
+        sudo cp /opt/local/var/macports/software $HOME/macports_cache
     fi
     if [ $DEPENDENCIES = homebrew ]; then
         if [ $PYTHON_VERSION = 2 ]; then
@@ -59,6 +61,7 @@ function install_dependencies {
         fi
         install_virtualenv
         make_workon_venv $TRAVIS_BUILD_DIR
+        brew cleanup
     fi
     toggle_py_sys_site_packages
     #${PIP_CMD} install -r $TRAVIS_BUILD_DIR/$REPO_DIR/tests/requirements-mac.txt | cat
