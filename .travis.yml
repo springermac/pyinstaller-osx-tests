@@ -3,97 +3,97 @@ language: python
 matrix:
     include:
         - os: osx
-          python: 2.7
+          python: 2.7.11-macpython
           env:
             - VERSION=2.7.11
               SOURCE=macpython
               DEPENDENCIES=pip
         - os: osx
-          python: 3.3
+          python: 3.3.5-macpython
           env:
             - VERSION=3.3.5
               SOURCE=macpython
               DEPENDENCIES=pip
         - os: osx
-          python: 3.4
+          python: 3.4.4-macpython
           env:
             - VERSION=3.4.4
               SOURCE=macpython
               DEPENDENCIES=pip
         - os: osx
-          python: 3.5
+          python: 3.5.1-macpython
           env:
             - VERSION=3.5.1
               SOURCE=macpython
               DEPENDENCIES=pip
         - os: osx
-          python: 2.7
+          python: 2.7-macports
           env:
             - VERSION=2.7
               SOURCE=macports
               DEPENDENCIES=pip
         - os: osx
-          python: 3.3
+          python: 3.3-macports
           env:
             - VERSION=3.3
               SOURCE=macports
               DEPENDENCIES=pip
         - os: osx
-          python: 3.4
+          python: 3.4-macports
           env:
             - VERSION=3.4
               SOURCE=macports
               DEPENDENCIES=pip
         - os: osx
-          python: 3.5
+          python: 3.5-macports
           env:
             - VERSION=3.5
               SOURCE=macports
               DEPENDENCIES=pip
         - os: osx
-          python: 2.7
+          python: 2-homebrew
           env:
             - VERSION=2
               SOURCE=homebrew
               DEPENDENCIES=pip
         - os: osx
-          python: 3.5
+          python: 3-homebrew
           env:
             - VERSION=3
               SOURCE=hombrew
               DEPENDENCIES=pip
         - os: osx
-          python: 2.7
+          python: 2.7-macports
           env:
             - VERSION=2.7
               SOURCE=macports
               DEPENDENCIES=macports
         - os: osx
-          python: 3.3
+          python: 3.3-macports
           env:
             - VERSION=3.3
               SOURCE=macports
               DEPENDENCIES=macports
         - os: osx
-          python: 3.4
+          python: 3.4-macports
           env:
             - VERSION=3.4
               SOURCE=macports
               DEPENDENCIES=macports
         - os: osx
-          python: 3.5
+          python: 3.5-macports
           env:
             - VERSION=3.5
               SOURCE=macports
               DEPENDENCIES=macports
         - os: osx
-          python: 2.7
+          python: 2-homebrew
           env:
             - VERSION=2
               SOURCE=homebrew
               DEPENDENCIES=homebrew
         - os: osx
-          python: 3.5
+          python: 3-homebrew
           env:
             - VERSION=3
               SOURCE=homebrew
