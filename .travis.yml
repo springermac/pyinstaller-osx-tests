@@ -94,7 +94,7 @@ install:
   # Download-progress bars break Travis's log view. Disable them by piping output
   # through another program (if output is not a tty, no progress bars)
   - ${PIP_CMD} install pip-accel
-  - if [ $SOURCE != macports ]; then export ACCEL_CMD=`dirname $PIP_CMD`/pip-accel; else export ACCEL_CMD=sudo `dirname $PIP_CMD`/pip-accel; fi
+  - if [ $SOURCE != macports ]; then export ACCEL_CMD=`dirname $PIP_CMD`/pip-accel; else export ACCEL_CMD='sudo `dirname $PIP_CMD`/pip-accel'; fi
   - ${ACCEL_CMD} install -r $TRAVIS_BUILD_DIR/$REPO_DIR/tests/requirements-tools.txt | cat
   - source $TRAVIS_BUILD_DIR/utils.sh
   - install_dependencies
