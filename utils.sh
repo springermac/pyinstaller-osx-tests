@@ -64,12 +64,13 @@ function install_dependencies {
             #travis_wait brew install pyside --with-python3 --without-python Takes to long
             brew install pygobject3 --with-python3 --without-python
         fi
+    fi
+    if [ $SOURCE = homebrew ]; then
         install_virtualenv
         make_workon_venv $TRAVIS_BUILD_DIR
         brew cleanup
     fi
     toggle_py_sys_site_packages
-    #${PIP_CMD} install -r $TRAVIS_BUILD_DIR/$REPO_DIR/tests/requirements-mac.txt | cat
     export ACCEL_CMD=`dirname $PIP_CMD`/pip-accel
     ${ACCEL_CMD} install -r $TRAVIS_BUILD_DIR/$REPO_DIR/tests/requirements-mac.txt | cat
 }
