@@ -66,8 +66,6 @@ function install_dependencies {
         fi
     fi
     if [ $SOURCE = homebrew ]; then
-        install_virtualenv
-        make_workon_venv $TRAVIS_BUILD_DIR
         brew cleanup
     fi
     toggle_py_sys_site_packages
