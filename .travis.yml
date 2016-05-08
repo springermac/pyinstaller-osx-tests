@@ -8,6 +8,9 @@ cache:
   directories:
     - $HOME/Library/Caches/pip
     - $HOME/.pip-accel
+    - /opt/local/var/macports/distfiles
+    - /opt/local/var/macports/software
+    - /Library/Caches/Homebrew
 
 env:
   global:
@@ -88,7 +91,7 @@ install:
   - $PIP_CMD install -e .
 
   # Install dependencies for tests. Use pip-accel to cache compiled
-  # packages and safe recompiling each time.
+  # packages and save recompiling each time.
   # Download-progress bars break Travis's log view. Disable them by piping output
   # through another program (if output is not a tty, no progress bars)
   - ${PIP_CMD} install pip-accel
