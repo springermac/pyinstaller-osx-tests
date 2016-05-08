@@ -3,7 +3,9 @@
 
 function install_dependencies {
     if [ $DEPENDENCIES = macports ]; then
-        sudo cp $HOME/macports_cache /opt/local/var/macports/software
+        if [ -d "$HOME/macports_cache" ]; then
+            sudo cp -R $HOME/macports_cache /opt/local/var/macports/software
+        fi
         sudo port -qp install py$PYTHON_VERSION-crypto
         sudo port -qp install py$PYTHON_VERSION-boto
         sudo port -qp install py$PYTHON_VERSION-boto3
@@ -33,7 +35,10 @@ function install_dependencies {
         sudo port -qp install py$PYTHON_VERSION-gevent
         sudo port -qp install gstreamer1
         sudo port -qp install py$PYTHON_VERSION-gobject3
-        sudo cp /opt/local/var/macports/software $HOME/macports_cache
+        mkdir $HOME/macports_cache
+        if [ -d "/opt/local/var/macports/software" ]; then
+            sudo cp -R /opt/local/var/macports/software $HOME/macports_cache
+        fi
     fi
     if [ $DEPENDENCIES = homebrew ]; then
         if [ $PYTHON_VERSION = 2 ]; then
