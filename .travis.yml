@@ -3,100 +3,100 @@ language: python
 matrix:
     include:
         - os: osx
-          language: generic
+          python: 2.7
           env:
             - VERSION=2.7.11
               SOURCE=macpython
               DEPENDENCIES=pip
         - os: osx
-          language: generic
+          python: 3.3
           env:
             - VERSION=3.3.5
               SOURCE=macpython
               DEPENDENCIES=pip
         - os: osx
-          language: generic
+          python: 3.4
           env:
             - VERSION=3.4.4
               SOURCE=macpython
               DEPENDENCIES=pip
         - os: osx
-          language: generic
+          python: 3.5
           env:
             - VERSION=3.5.1
               SOURCE=macpython
               DEPENDENCIES=pip
         - os: osx
-          language: generic
+          python: 2.7
           env:
             - VERSION=2.7
               SOURCE=macports
               DEPENDENCIES=pip
         - os: osx
-          language: generic
+          python: 3.3
           env:
             - VERSION=3.3
               SOURCE=macports
               DEPENDENCIES=pip
         - os: osx
-          language: generic
+          python: 3.4
           env:
             - VERSION=3.4
               SOURCE=macports
               DEPENDENCIES=pip
         - os: osx
-          language: generic
+          python: 3.5
           env:
             - VERSION=3.5
               SOURCE=macports
               DEPENDENCIES=pip
         - os: osx
-          language: generic
+          python: 2.7
           env:
             - VERSION=2
               SOURCE=homebrew
               DEPENDENCIES=pip
         - os: osx
-          language: generic
+          python: 3.5
           env:
             - VERSION=3
               SOURCE=hombrew
               DEPENDENCIES=pip
         - os: osx
-          language: generic
+          python: 2.7
           env:
             - VERSION=2.7
               SOURCE=macports
               DEPENDENCIES=macports
         - os: osx
-          language: generic
+          python: 3.3
           env:
             - VERSION=3.3
               SOURCE=macports
               DEPENDENCIES=macports
         - os: osx
-          language: generic
+          python: 3.4
           env:
             - VERSION=3.4
               SOURCE=macports
               DEPENDENCIES=macports
         - os: osx
-          language: generic
+          python: 3.5
           env:
             - VERSION=3.5
               SOURCE=macports
               DEPENDENCIES=macports
         - os: osx
-          language: generic
+          python: 2.7
           env:
             - VERSION=2
               SOURCE=homebrew
               DEPENDENCIES=homebrew
         - os: osx
-          language: generic
+          python: 3.5
           env:
             - VERSION=3
-              SOURCE=hombrew
+              SOURCE=homebrew
               DEPENDENCIES=homebrew
 
 # Cache pip packages. Explicitly name the pip-cache directory since we
