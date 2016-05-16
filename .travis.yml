@@ -60,7 +60,7 @@ matrix:
           compiler: ": 3-homebrew"
           env:
             - VERSION=3
-              SOURCE=hombrew
+              SOURCE=homebrew
               DEPENDENCIES=pip
         - os: osx
           compiler: ": 2.7-macports"
