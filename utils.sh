@@ -65,7 +65,7 @@ function install_dependencies {
             brew install pygobject3 --with-python3 --without-python
         fi
     fi
-    if [ $SOURCE = homebrew ]; then
+    if [ $DEPENDENCIES = homebrew ]; then
         brew cleanup
     fi
     toggle_py_sys_site_packages
