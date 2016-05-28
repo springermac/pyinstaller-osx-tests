@@ -95,7 +95,7 @@ cache:
 
 env:
   global:
-    - PYI_COMMIT=develop
+    - PYI_COMMIT=osx-caching
     - REPO_DIR=pyinstaller
     # shorten logging of pip-accel
     - PIP_ACCEL_LOG_FORMAT="%(name)-18s %(levelname)s %(message)s"
