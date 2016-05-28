@@ -66,7 +66,11 @@ function install_dependencies {
         fi
     fi
     if [ $DEPENDENCIES = homebrew ]; then
-        brew cleanup
+        brew cleanup -s
+    fi
+    if [ $DEPENDENCIES = macports ]; then
+        sudo port clean --all inactive
+        sudo port -f uninstall inactive
     fi
     toggle_py_sys_site_packages
     export ACCEL_CMD=`dirname $PIP_CMD`/pip-accel
