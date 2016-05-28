@@ -113,7 +113,7 @@ install:
 
   # Checkout latest PyInstaller.
   - cd $TRAVIS_BUILD_DIR
-  - checkout_commit $REPO_DIR $PYI_COMMIT
+  - checkout_commit $REPO_DIR $PYI_COMMIT | cat
 
   # Compile bootloader.
   - cd $TRAVIS_BUILD_DIR/$REPO_DIR/bootloader
