@@ -3,6 +3,7 @@
 
 function install_dependencies {
     if [ $DEPENDENCIES = macports ]; then
+        travis_fold start "dependencies macports"
         sudo port -vp install py$PYTHON_VERSION-crypto
         sudo port -vp install py$PYTHON_VERSION-boto
         sudo port -vp install py$PYTHON_VERSION-boto3
@@ -32,8 +33,10 @@ function install_dependencies {
         sudo port -vp install py$PYTHON_VERSION-gevent
         #sudo port -vp install gstreamer1
         #sudo port -vp install py$PYTHON_VERSION-gobject3
+        travis_fold end "dependencies macports"
     fi
     if [ $DEPENDENCIES = homebrew ]; then
+        travis_fold start "dependencies homebrew"
         if [ $PYTHON_VERSION = 2 ]; then
             brew tap homebrew/python
             brew install python-markdown
@@ -57,10 +60,13 @@ function install_dependencies {
             #travis_wait brew install pyside --with-python3 --without-python Takes to long
             #brew install pygobject3 --with-python3 --without-python
         fi
+        travis_fold end "dependencies homebrew"
     fi
     toggle_py_sys_site_packages
     export ACCEL_CMD=`dirname $PIP_CMD`/pip-accel
+    travis_fold start "dependencies pip"
     ${ACCEL_CMD} install -r $TRAVIS_BUILD_DIR/$REPO_DIR/tests/requirements-mac.txt | cat
+    travis_fold end "dependencies pip"
 }
 
 function prep_cache {
