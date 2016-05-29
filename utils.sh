@@ -3,35 +3,35 @@
 
 function install_dependencies {
     if [ $DEPENDENCIES = macports ]; then
-        sudo port -qp install py$PYTHON_VERSION-crypto
-        sudo port -qp install py$PYTHON_VERSION-boto
-        sudo port -qp install py$PYTHON_VERSION-boto3
-        sudo port -qp install py$PYTHON_VERSION-pygments
-        sudo port -qp install py$PYTHON_VERSION-pylint
-        sudo port -qp install py$PYTHON_VERSION-markdown
-        sudo port -qp install py$PYTHON_VERSION-simplejson
-        sudo port -qp install py$PYTHON_VERSION-sphinx
-        sudo port -qp install py$PYTHON_VERSION-sphinx_rtd_theme
-        sudo port -qp install py$PYTHON_VERSION-zmq
-        sudo port -qp install py$PYTHON_VERSION-zopeinterface
-        sudo port -qp install py$PYTHON_VERSION-numpy
-        sudo port -qp install py$PYTHON_VERSION-lxml
-        sudo port -qp install py$PYTHON_VERSION-pycparser
-        sudo port -qp install py$PYTHON_VERSION-tz
-        sudo port -qp install py$PYTHON_VERSION-sqlalchemy
-        sudo port -qp install py$PYTHON_VERSION-Pillow
-        sudo port -qp install py$PYTHON_VERSION-dateutil
-        sudo port -qp install py$PYTHON_VERSION-pandas
-        sudo port -qp install py$PYTHON_VERSION-matplotlib
+        sudo port -vp install py$PYTHON_VERSION-crypto
+        sudo port -vp install py$PYTHON_VERSION-boto
+        sudo port -vp install py$PYTHON_VERSION-boto3
+        sudo port -vp install py$PYTHON_VERSION-pygments
+        sudo port -vp install py$PYTHON_VERSION-pylint
+        sudo port -vp install py$PYTHON_VERSION-markdown
+        sudo port -vp install py$PYTHON_VERSION-simplejson
+        sudo port -vp install py$PYTHON_VERSION-sphinx
+        sudo port -vp install py$PYTHON_VERSION-sphinx_rtd_theme
+        sudo port -vp install py$PYTHON_VERSION-zmq
+        sudo port -vp install py$PYTHON_VERSION-zopeinterface
+        sudo port -vp install py$PYTHON_VERSION-numpy
+        sudo port -vp install py$PYTHON_VERSION-lxml
+        sudo port -vp install py$PYTHON_VERSION-pycparser
+        sudo port -vp install py$PYTHON_VERSION-tz
+        sudo port -vp install py$PYTHON_VERSION-sqlalchemy
+        sudo port -vp install py$PYTHON_VERSION-Pillow
+        sudo port -vp install py$PYTHON_VERSION-dateutil
+        sudo port -vp install py$PYTHON_VERSION-pandas
+        sudo port -vp install py$PYTHON_VERSION-matplotlib
         # No binary archives for pyqt*, due to license conflict, which causes build too run to long
-        #sudo port -qp install py$PYTHON_VERSION-pyqt4
-        #sudo port -qp install py$PYTHON_VERSION-pyqt5
-        #sudo port -qp install py$PYTHON_VERSION-pyside Runs too long
-        sudo port -qp install py$PYTHON_VERSION-tkinter
-        sudo port -qp install py$PYTHON_VERSION-enchant
-        sudo port -qp install py$PYTHON_VERSION-gevent
-        #sudo port -qp install gstreamer1
-        #sudo port -qp install py$PYTHON_VERSION-gobject3
+        #sudo port -vp install py$PYTHON_VERSION-pyqt4
+        #sudo port -vp install py$PYTHON_VERSION-pyqt5
+        #sudo port -vp install py$PYTHON_VERSION-pyside Runs too long
+        sudo port -vp install py$PYTHON_VERSION-tkinter
+        sudo port -vp install py$PYTHON_VERSION-enchant
+        sudo port -vp install py$PYTHON_VERSION-gevent
+        #sudo port -vp install gstreamer1
+        #sudo port -vp install py$PYTHON_VERSION-gobject3
     fi
     if [ $DEPENDENCIES = homebrew ]; then
         if [ $PYTHON_VERSION = 2 ]; then
