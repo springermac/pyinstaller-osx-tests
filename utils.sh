@@ -64,6 +64,7 @@ function install_dependencies {
 }
 
 function prep_cache {
+    df -h
     if [ $SOURCE = macports ]; then
         mkdir $HOME/macports_cache
         sudo port clean --work --logs --archive installed
@@ -74,4 +75,5 @@ function prep_cache {
     if [ $SOURCE = homebrew ]; then
         brew cleanup -s
     fi
+    df -h
 }
