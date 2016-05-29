@@ -3,9 +3,6 @@
 
 function install_dependencies {
     if [ $DEPENDENCIES = macports ]; then
-        if [ -d "$HOME/macports_cache" ]; then
-            sudo cp -R $HOME/macports_cache /opt/local/var/macports/software
-        fi
         sudo port -qp install py$PYTHON_VERSION-crypto
         sudo port -qp install py$PYTHON_VERSION-boto
         sudo port -qp install py$PYTHON_VERSION-boto3
@@ -36,9 +33,6 @@ function install_dependencies {
         sudo port -qp install gstreamer1
         sudo port -qp install py$PYTHON_VERSION-gobject3
         mkdir $HOME/macports_cache
-        if [ -d "/opt/local/var/macports/software" ]; then
-            sudo cp -R /opt/local/var/macports/software $HOME/macports_cache
-        fi
     fi
     if [ $DEPENDENCIES = homebrew ]; then
         if [ $PYTHON_VERSION = 2 ]; then
@@ -65,14 +59,19 @@ function install_dependencies {
             brew install pygobject3 --with-python3 --without-python
         fi
     fi
-    if [ $DEPENDENCIES = homebrew ]; then
-        brew cleanup -s
-    fi
-    if [ $DEPENDENCIES = macports ]; then
-        sudo port clean --all inactive
-        sudo port -f uninstall inactive
-    fi
     toggle_py_sys_site_packages
     export ACCEL_CMD=`dirname $PIP_CMD`/pip-accel
     ${ACCEL_CMD} install -r $TRAVIS_BUILD_DIR/$REPO_DIR/tests/requirements-mac.txt | cat
+}
+
+function prep_cache {
+    if [ $SOURCE = macports ]; then
+        sudo port clean --work --logs --archive installed
+        if [ -d "/opt/local/var/macports/software" ]; then
+            sudo mv /opt/local/var/macports/software $HOME/macports_cache
+        fi
+    fi
+    if [ $SOURCE = homebrew ]; then
+        brew cleanup -s
+    fi
 }
