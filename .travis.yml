@@ -86,7 +86,7 @@ matrix:
 # Cache pip packages. Explicitly name the pip-cache directory since we
 # use a custom `install` step which annuls `cache: pip`.
 cache:
-  timeout: 300
+  timeout: 500
   directories:
     - $HOME/Library/Caches/pip
     - $HOME/.pip-accel

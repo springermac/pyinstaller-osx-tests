@@ -32,7 +32,6 @@ function install_dependencies {
         sudo port -qp install py$PYTHON_VERSION-gevent
         sudo port -qp install gstreamer1
         sudo port -qp install py$PYTHON_VERSION-gobject3
-        mkdir $HOME/macports_cache
     fi
     if [ $DEPENDENCIES = homebrew ]; then
         if [ $PYTHON_VERSION = 2 ]; then
@@ -66,6 +65,7 @@ function install_dependencies {
 
 function prep_cache {
     if [ $SOURCE = macports ]; then
+        mkdir $HOME/macports_cache
         sudo port clean --work --logs --archive installed
         if [ -d "/opt/local/var/macports/software" ]; then
             sudo mv /opt/local/var/macports/software $HOME/macports_cache
