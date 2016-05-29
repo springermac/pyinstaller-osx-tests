@@ -106,7 +106,7 @@ env:
 install:
   # Build Python interpreter
   - source terryfy/travis_tools.sh
-  - if [ -d "$HOME/macports_cache" ]; then sudo mv $HOME/macports_cache /opt/local/var/macports/software; fi
+  - if [ -d "$HOME/macports_cache" ]; then sudo mkdir /opt/local/var/macports/software; sudo mv $HOME/macports_cache /opt/local/var/macports/software; fi
   - get_python_environment $SOURCE $VERSION venv
   - if [ $SOURCE = macports ]; then sudo port -p install curl; fi
   - source terryfy/test_python_installs.sh
