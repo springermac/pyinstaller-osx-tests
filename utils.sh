@@ -92,8 +92,7 @@ function prep_cache {
         mkdir $HOME/macports_cache
         #sudo port clean --work --logs --archive installed
         if [ -d "/opt/local/var/macports/software" ]; then
-            sudo mkdir $HOME/macports_cache/software
-            sudo mv /opt/local/var/macports/software $HOME/macports_cache/software
+            sudo mv /opt/local/var/macports/software $HOME/macports_cache
             #sudo mv /opt/local/var/macports/incoming $HOME/macports_cache/incoming
         fi
     fi
