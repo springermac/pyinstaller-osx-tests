@@ -108,7 +108,7 @@ install:
   - source terryfy/travis_tools.sh
   - if [ -d "$HOME/macports_cache/software" ]; then sudo mkdir -p /opt/local/var/macports/software; sudo mv $HOME/macports_cache/software /opt/local/var/macports/; fi
   - get_python_environment $SOURCE $VERSION venv
-  - if [ $SOURCE = macports ]; then sudo port -qpb activate curl; fi
+  - if [ $SOURCE = macports ]; then sudo port -qpb install curl; fi
   - source terryfy/test_python_installs.sh
   - if [ $SOURCE = macports ]; then export PYTHON_VERSION=`get_py_mm_nodot`; else export PYTHON_VERSION=`get_py_digit`; fi
 
