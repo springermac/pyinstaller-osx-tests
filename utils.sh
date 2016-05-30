@@ -3,9 +3,9 @@
 
 function install_port {
     PORT=$1
-    sudo port -b install $PORT
+    sudo port -b install $PORT | cat
     if [ $? -ne 0 ]; then
-        sudo port -p install $PORT
+        sudo port -p install $PORT | cat
     fi
 }
 
