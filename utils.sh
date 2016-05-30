@@ -3,9 +3,9 @@
 
 function install_port {
     PORT=$1
-    sudo port -qb install $PORT
+    sudo port -b install $PORT
     if [ $? -ne 0 ]; then
-        sudo port -qp install $PORT
+        sudo port -p install $PORT
     fi
 }
 
@@ -46,27 +46,27 @@ function install_dependencies {
     if [ $DEPENDENCIES = homebrew ]; then
         travis_fold start dependencies_homebrew
         if [ $PYTHON_VERSION = 2 ]; then
-            brew -v tap homebrew/python
-            brew -v install python-markdown
-            brew -v install numpy
-            brew -v install Pillow
-            brew -v install matplotlib
-            brew -v install wxpython
-            brew -v install enchant --with-python
-            brew -v install pyqt
-            travis_wait brew -v install pyqt5 --with-python --without-python3
-            #travis_wait brew -v install pyside Takes to long
-            #brew -v install gst-python
+            brew tap homebrew/python
+            brew install python-markdown
+            brew install numpy
+            brew install Pillow
+            brew install matplotlib
+            brew install wxpython
+            brew install enchant --with-python
+            brew install pyqt
+            travis_wait brew install pyqt5 --with-python --without-python3
+            #travis_wait brew install pyside Takes to long
+            #brew install gst-python
         fi
         if [ $PYTHON_VERSION = 3 ]; then
-            brew -v tap homebrew/python
-            brew -v install numpy --with-python3 --without-python
-            brew -v install Pillow --with-python3 --without-python
-            brew -v install matplotlib --with-python3 --without-python
-            travis_wait brew -v install pyqt --with-python3 --without-python
-            brew -v install pyqt5
-            #travis_wait brew -v install pyside --with-python3 --without-python Takes to long
-            #brew -v install pygobject3 --with-python3 --without-python
+            brew tap homebrew/python
+            brew install numpy --with-python3 --without-python
+            brew install Pillow --with-python3 --without-python
+            brew install matplotlib --with-python3 --without-python
+            travis_wait brew install pyqt --with-python3 --without-python
+            brew install pyqt5
+            #travis_wait brew install pyside --with-python3 --without-python Takes to long
+            #brew install pygobject3 --with-python3 --without-python
         fi
         travis_fold end dependencies_homebrew
     fi
