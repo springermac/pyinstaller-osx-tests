@@ -80,6 +80,7 @@ function install_dependencies {
 function prep_cache {
     df -h
     if [ $SOURCE = macports ]; then
+        sudo rm -rf $HOME/macports_cache
         mkdir $HOME/macports_cache
         sudo port clean --work --logs --archive installed
         if [ -d "/opt/local/var/macports/software" ]; then
