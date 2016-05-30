@@ -42,7 +42,7 @@ function install_dependencies {
         install_port py$PYTHON_VERSION-gevent
         #install_port gstreamer1
         #install_port py$PYTHON_VERSION-gobject3
-        travis_time_end
+        travis_time_finish
         travis_fold end dependencies_macports
     fi
     if [ $DEPENDENCIES = homebrew ]; then
@@ -71,7 +71,7 @@ function install_dependencies {
             #travis_wait brew install pyside --with-python3 --without-python Takes to long
             #brew install pygobject3 --with-python3 --without-python
         fi
-        travis_time_end
+        travis_time_finish
         travis_fold end dependencies_homebrew
     fi
     toggle_py_sys_site_packages
@@ -79,7 +79,7 @@ function install_dependencies {
     travis_fold start dependencies_pip
     travis_time_start
     ${ACCEL_CMD} install -r $TRAVIS_BUILD_DIR/$REPO_DIR/tests/requirements-mac.txt | cat
-    travis_time_end
+    travis_time_finish
     travis_fold end dependencies_pip
 }
 
