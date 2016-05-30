@@ -1,42 +1,50 @@
 #!/usr/bin/env bash
 # Use with ``source utils.sh``
 
+function install_port {
+    PORT=$1
+    sudo port -qb install $PORT
+    if [ $? -ne 0 ]; then
+        sudo port -qp install $PORT
+    fi
+}
+
 function install_dependencies {
     if [ $DEPENDENCIES = macports ]; then
-        travis_fold start "dependencies macports"
-        sudo port -qp activate py$PYTHON_VERSION-crypto
-        sudo port -qp activate py$PYTHON_VERSION-boto
-        sudo port -qp activate py$PYTHON_VERSION-boto3
-        sudo port -qp activate py$PYTHON_VERSION-pygments
-        sudo port -qp activate py$PYTHON_VERSION-pylint
-        sudo port -qp activate py$PYTHON_VERSION-markdown
-        sudo port -qp activate py$PYTHON_VERSION-simplejson
-        sudo port -qp activate py$PYTHON_VERSION-sphinx
-        sudo port -qp activate py$PYTHON_VERSION-sphinx_rtd_theme
-        sudo port -qp activate py$PYTHON_VERSION-zmq
-        sudo port -qp activate py$PYTHON_VERSION-zopeinterface
-        sudo port -qp activate py$PYTHON_VERSION-numpy
-        sudo port -qp activate py$PYTHON_VERSION-lxml
-        sudo port -qp activate py$PYTHON_VERSION-pycparser
-        sudo port -qp activate py$PYTHON_VERSION-tz
-        sudo port -qp activate py$PYTHON_VERSION-sqlalchemy
-        sudo port -qp activate py$PYTHON_VERSION-Pillow
-        sudo port -qp activate py$PYTHON_VERSION-dateutil
-        sudo port -qp activate py$PYTHON_VERSION-pandas
-        sudo port -qp activate py$PYTHON_VERSION-matplotlib
+        travis_fold start dependencies_macports
+        install_port py$PYTHON_VERSION-crypto
+        install_port py$PYTHON_VERSION-boto
+        install_port py$PYTHON_VERSION-boto3
+        install_port py$PYTHON_VERSION-pygments
+        install_port py$PYTHON_VERSION-pylint
+        install_port py$PYTHON_VERSION-markdown
+        install_port py$PYTHON_VERSION-simplejson
+        install_port py$PYTHON_VERSION-sphinx
+        install_port py$PYTHON_VERSION-sphinx_rtd_theme
+        install_port py$PYTHON_VERSION-zmq
+        install_port py$PYTHON_VERSION-zopeinterface
+        install_port py$PYTHON_VERSION-numpy
+        install_port py$PYTHON_VERSION-lxml
+        install_port py$PYTHON_VERSION-pycparser
+        install_port py$PYTHON_VERSION-tz
+        install_port py$PYTHON_VERSION-sqlalchemy
+        install_port py$PYTHON_VERSION-Pillow
+        install_port py$PYTHON_VERSION-dateutil
+        install_port py$PYTHON_VERSION-pandas
+        install_port py$PYTHON_VERSION-matplotlib
         # No binary archives for pyqt*, due to license conflict, which causes build too run to long
-        #sudo port -qp activate py$PYTHON_VERSION-pyqt4
-        #sudo port -qp activate py$PYTHON_VERSION-pyqt5
-        #sudo port -qp activate py$PYTHON_VERSION-pyside Runs too long
-        sudo port -qp activate py$PYTHON_VERSION-tkinter
-        sudo port -qp activate py$PYTHON_VERSION-enchant
-        sudo port -qp activate py$PYTHON_VERSION-gevent
-        #sudo port -qp activate gstreamer1
-        #sudo port -qp activate py$PYTHON_VERSION-gobject3
-        travis_fold end "dependencies macports"
+        #install_port py$PYTHON_VERSION-pyqt4
+        #install_port py$PYTHON_VERSION-pyqt5
+        #install_port py$PYTHON_VERSION-pyside Runs too long
+        install_port py$PYTHON_VERSION-tkinter
+        install_port py$PYTHON_VERSION-enchant
+        install_port py$PYTHON_VERSION-gevent
+        #install_port gstreamer1
+        #install_port py$PYTHON_VERSION-gobject3
+        travis_fold end dependencies_macports
     fi
     if [ $DEPENDENCIES = homebrew ]; then
-        travis_fold start "dependencies homebrew"
+        travis_fold start dependencies_homebrew
         if [ $PYTHON_VERSION = 2 ]; then
             brew -v tap homebrew/python
             brew -v install python-markdown
@@ -60,13 +68,13 @@ function install_dependencies {
             #travis_wait brew -v install pyside --with-python3 --without-python Takes to long
             #brew -v install pygobject3 --with-python3 --without-python
         fi
-        travis_fold end "dependencies homebrew"
+        travis_fold end dependencies_homebrew
     fi
     toggle_py_sys_site_packages
     export ACCEL_CMD=`dirname $PIP_CMD`/pip-accel
-    travis_fold start "dependencies pip"
+    travis_fold start dependencies_pip
     ${ACCEL_CMD} install -r $TRAVIS_BUILD_DIR/$REPO_DIR/tests/requirements-mac.txt | cat
-    travis_fold end "dependencies pip"
+    travis_fold end dependencies_pip
 }
 
 function prep_cache {
