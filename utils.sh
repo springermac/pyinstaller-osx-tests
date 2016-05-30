@@ -89,10 +89,10 @@ function prep_cache {
         sudo rm -rf $HOME/macports_cache
         sudo rm -rf /opt/local/var/macports/software/software
         mkdir $HOME/macports_cache
-        sudo port clean --work --logs --archive installed
+        #sudo port clean --work --logs --archive installed
         if [ -d "/opt/local/var/macports/software" ]; then
             sudo mkdir $HOME/macports_cache/software
-            ls -R /opt/local/var/macports/software
+            ls -R /opt/local/var/macports/incoming
             sudo mv /opt/local/var/macports/software $HOME/macports_cache/software
             #sudo mv /opt/local/var/macports/incoming $HOME/macports_cache/incoming
         fi
