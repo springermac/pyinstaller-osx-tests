@@ -3,9 +3,9 @@
 
 function install_port {
     PORT=$1
-    sudo port -b install $PORT | cat
+    sudo port -vb install $PORT | cat
     if [ $? -ne 0 ]; then
-        sudo port -p install $PORT | cat
+        sudo port -vp install $PORT | cat
     fi
 }
 
@@ -59,7 +59,7 @@ function install_dependencies {
             brew install pyqt
             travis_wait brew install pyqt5 --with-python --without-python3
             #travis_wait brew install pyside Takes to long
-            #brew install gst-python
+            brew install gst-python
         fi
         if [ $PYTHON_VERSION = 3 ]; then
             brew tap homebrew/python
@@ -69,7 +69,7 @@ function install_dependencies {
             travis_wait brew install pyqt --with-python3 --without-python
             brew install pyqt5
             #travis_wait brew install pyside --with-python3 --without-python Takes to long
-            brew install pygobject3 --with-python3 --without-python
+            brew install gst-python --with-python3 --without-python
         fi
         travis_time_finish
         travis_fold end dependencies_homebrew
