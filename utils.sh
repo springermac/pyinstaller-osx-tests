@@ -3,9 +3,9 @@
 
 function install_port {
     PORT=$1
-    sudo port -vb install $PORT | cat
+    sudo port -vb fetch $PORT | cat
     if [ $? -ne 0 ]; then
-        sudo port -vp install $PORT | cat
+        sudo port -vp fetch $PORT | cat
     fi
 }
 
