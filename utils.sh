@@ -40,8 +40,8 @@ function install_dependencies {
         install_port py$PYTHON_VERSION-tkinter
         install_port py$PYTHON_VERSION-enchant
         install_port py$PYTHON_VERSION-gevent
-        #install_port gstreamer1
-        #install_port py$PYTHON_VERSION-gobject3
+        install_port gstreamer1
+        install_port py$PYTHON_VERSION-gobject3
         travis_time_finish
         travis_fold end dependencies_macports
     fi
@@ -69,7 +69,7 @@ function install_dependencies {
             travis_wait brew install pyqt --with-python3 --without-python
             brew install pyqt5
             #travis_wait brew install pyside --with-python3 --without-python Takes to long
-            #brew install pygobject3 --with-python3 --without-python
+            brew install pygobject3 --with-python3 --without-python
         fi
         travis_time_finish
         travis_fold end dependencies_homebrew
