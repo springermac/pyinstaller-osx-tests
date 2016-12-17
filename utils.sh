@@ -87,7 +87,7 @@ function install_dependencies {
 function prep_cache {
     df -h
     if [ $SOURCE = macports ]; then
-        ls -R /opt/local/var/macports
+#        ls -R /opt/local/var/macports
         sudo rm -rf $HOME/macports_cache
         sudo rm -rf /opt/local/var/macports/software/software
         mkdir $HOME/macports_cache
