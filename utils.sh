@@ -49,8 +49,9 @@ function install_dependencies {
         travis_fold start dependencies_homebrew
         travis_time_start
         /usr/local/bin/pip uninstall -y numpy
+        brew tap homebrew/python
+        brew tap homebrew/boneyard
         if [ $PYTHON_VERSION = 2 ]; then
-            brew tap homebrew/python
             brew install python-markdown
             brew install numpy
             brew install Pillow
@@ -63,11 +64,10 @@ function install_dependencies {
             brew install gst-python
         fi
         if [ $PYTHON_VERSION = 3 ]; then
-            brew tap homebrew/python
             brew install numpy --with-python3 --without-python
             brew install Pillow --with-python3 --without-python
             brew install matplotlib --with-python3 --without-python
-#            travis_wait brew install pyqt --with-python3 --without-python
+            travis_wait brew install pyqt --with-python3 --without-python
             brew install pyqt5
             #travis_wait brew install pyside --with-python3 --without-python Takes to long
             brew install gst-python --with-python3 --without-python
