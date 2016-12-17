@@ -48,12 +48,10 @@ function install_dependencies {
     if [ $DEPENDENCIES = homebrew ]; then
         travis_fold start dependencies_homebrew
         travis_time_start
-        $PIP_CMD uninstall -r $TRAVIS_BUILD_DIR/$REPO_DIR/tests/requirements-mac.txt | cat
         if [ $PYTHON_VERSION = 2 ]; then
             brew tap homebrew/python
             brew install python-markdown
-            brew install numpy
-            brew link --overwrite numpy
+#            brew install numpy
             brew install Pillow
             brew install matplotlib
             brew install wxpython
@@ -68,7 +66,7 @@ function install_dependencies {
             brew install numpy --with-python3 --without-python
             brew install Pillow --with-python3 --without-python
             brew install matplotlib --with-python3 --without-python
-            travis_wait brew install pyqt --with-python3 --without-python
+#            travis_wait brew install pyqt --with-python3 --without-python
             brew install pyqt5
             #travis_wait brew install pyside --with-python3 --without-python Takes to long
             brew install gst-python --with-python3 --without-python
