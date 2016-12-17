@@ -91,7 +91,7 @@ cache:
     - $HOME/Library/Caches/pip
     - $HOME/.pip-accel
     - $HOME/macports_cache
-    - /Library/Caches/Homebrew
+    - $HOME/Library/Caches/Homebrew
 
 env:
   global:
