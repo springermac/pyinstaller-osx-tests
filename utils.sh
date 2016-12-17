@@ -48,7 +48,10 @@ function install_dependencies {
     if [ $DEPENDENCIES = homebrew ]; then
         travis_fold start dependencies_homebrew
         travis_time_start
-        $PIP_CMD uninstall numpy
+        which pip
+        which pip2
+        which $PIP_CMD
+#        $PIP_CMD uninstall numpy
         if [ $PYTHON_VERSION = 2 ]; then
             brew tap homebrew/python
             brew install python-markdown
