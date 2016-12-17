@@ -48,10 +48,11 @@ function install_dependencies {
     if [ $DEPENDENCIES = homebrew ]; then
         travis_fold start dependencies_homebrew
         travis_time_start
+        $PIP_CMD uninstall numpy
         if [ $PYTHON_VERSION = 2 ]; then
             brew tap homebrew/python
             brew install python-markdown
-#            brew install numpy
+            brew install numpy
             brew install Pillow
             brew install matplotlib
             brew install wxpython
