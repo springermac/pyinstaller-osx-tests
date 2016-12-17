@@ -48,6 +48,7 @@ function install_dependencies {
     if [ $DEPENDENCIES = homebrew ]; then
         travis_fold start dependencies_homebrew
         travis_time_start
+        $PIP_CMD uninstall -r $TRAVIS_BUILD_DIR/$REPO_DIR/tests/requirements-mac.txt | cat
         if [ $PYTHON_VERSION = 2 ]; then
             brew tap homebrew/python
             brew install python-markdown
