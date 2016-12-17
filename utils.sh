@@ -52,6 +52,7 @@ function install_dependencies {
             brew tap homebrew/python
             brew install python-markdown
             brew install numpy
+            brew link --overwrite numpy
             brew install Pillow
             brew install matplotlib
             brew install wxpython
