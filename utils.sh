@@ -48,10 +48,10 @@ function install_dependencies {
     if [ $DEPENDENCIES = homebrew ]; then
         travis_fold start dependencies_homebrew
         travis_time_start
-        /usr/local/bin/pip uninstall -y numpy
         brew tap homebrew/python
         brew tap homebrew/boneyard
         if [ $PYTHON_VERSION = 2 ]; then
+            /usr/local/bin/pip uninstall -y numpy
             brew install python-markdown
             brew install numpy
             brew install Pillow
