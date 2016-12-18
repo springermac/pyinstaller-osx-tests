@@ -90,11 +90,13 @@ function prep_cache {
     if [ $SOURCE = macports ]; then
         ls -R /opt/local/var/macports/distfiles
         ls -R /opt/local/var/macports/incoming
+        ls -R /opt/local/var/macports/software
         sudo rm -rf $HOME/macports_cache
         mkdir $HOME/macports_cache
         #sudo port clean --work --logs --archive installed
         sudo mv /opt/local/var/macports/distfiles $HOME/macports_cache/distfiles
         sudo mv /opt/local/var/macports/incoming $HOME/macports_cache/incoming
+        sudo mv /opt/local/var/macports/software $HOME/macports_cache/software
     fi
     if [ $SOURCE = homebrew ]; then
         brew cleanup -s
