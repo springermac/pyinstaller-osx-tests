@@ -85,6 +85,25 @@ function install_dependencies {
     travis_fold end dependencies_pip
 }
 
+function register_cache {
+    ls -R $HOME/macports_cache
+    if [ -d "$HOME/macports_cache/distfiles" ]; then
+        sudo mkdir -p /opt/local/var/macports/distfiles
+        sudo mv -f $HOME/macports_cache/distfiles /opt/local/var/macports/
+        ls -R /opt/local/var/macports/distfiles
+    fi
+    if [ -d "$HOME/macports_cache/incoming" ]; then
+        sudo mkdir -p /opt/local/var/macports/incoming
+        sudo mv -f $HOME/macports_cache/incoming /opt/local/var/macports/
+        ls -R /opt/local/var/macports/incoming
+    fi
+    if [ -d "$HOME/macports_cache/software" ]; then
+        sudo mkdir -p /opt/local/var/macports/software
+        sudo mv -f $HOME/macports_cache/software /opt/local/var/macports/
+        ls -R /opt/local/var/macports/software
+    fi
+}
+
 function prep_cache {
     df -h
     if [ $SOURCE = macports ]; then
