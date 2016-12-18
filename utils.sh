@@ -87,15 +87,14 @@ function install_dependencies {
 
 function prep_cache {
     df -h
-#    if [ $SOURCE = macports ]; then
-##        ls -R /opt/local/var/macports
-#        sudo rm -rf $HOME/macports_cache
-##        sudo rm -rf /opt/local/var/macports/software/software
-#        mkdir $HOME/macports_cache
-#        #sudo port clean --work --logs --archive installed
-#        sudo mv /opt/local/var/macports/distfiles $HOME/macports_cache/distfiles
-#        sudo mv /opt/local/var/macports/incoming $HOME/macports_cache/incoming
-#    fi
+    if [ $SOURCE = macports ]; then
+        ls -R /opt/local/var/macports
+        sudo rm -rf $HOME/macports_cache
+        mkdir $HOME/macports_cache
+        #sudo port clean --work --logs --archive installed
+        sudo mv /opt/local/var/macports/distfiles $HOME/macports_cache/distfiles
+        sudo mv /opt/local/var/macports/incoming $HOME/macports_cache/incoming
+    fi
     if [ $SOURCE = homebrew ]; then
         brew cleanup -s
     fi

@@ -72,16 +72,16 @@ matrix:
             - VERSION=3.5
               SOURCE=macports
               DEPENDENCIES=macports
-        - os: osx
-          env:
-            - VERSION=2
-              SOURCE=homebrew
-              DEPENDENCIES=homebrew
-        - os: osx
-          env:
-            - VERSION=3
-              SOURCE=homebrew
-              DEPENDENCIES=homebrew
+#        - os: osx
+#          env:
+#            - VERSION=2
+#              SOURCE=homebrew
+#              DEPENDENCIES=homebrew
+#        - os: osx
+#          env:
+#            - VERSION=3
+#              SOURCE=homebrew
+#              DEPENDENCIES=homebrew
 
 # Cache pip packages. Explicitly name the pip-cache directory since we
 # use a custom `install` step which annuls `cache: pip`.
@@ -108,8 +108,10 @@ env:
 install:
   # Build Python interpreter
   - source terryfy/travis_tools.sh
-#  - ls -R $HOME/macports_cache
-#  - if [ -d "$HOME/macports_cache/software" ]; then sudo mkdir -p /opt/local/var/macports/software; sudo mv $HOME/macports_cache/software /opt/local/var/macports/; fi
+  - ls -R $HOME/macports_cache
+  - ls -R /opt/local/var/macports/distfiles
+  - if [ -d "$HOME/macports_cache/distfiles" ]; then sudo mkdir -p /opt/local/var/macports/distfiles; sudo mv $HOME/macports_cache/distfiles /opt/local/var/macports/; fi
+  - ls -R /opt/local/var/macports/distfiles
   - get_python_environment $SOURCE $VERSION venv
   - if [ $SOURCE = macports ]; then sudo port -pb install curl | cat; fi
   - source terryfy/test_python_installs.sh
