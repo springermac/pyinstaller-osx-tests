@@ -90,9 +90,9 @@ cache:
   directories:
     - $HOME/Library/Caches/pip
     - $HOME/.pip-accel
-#    - $HOME/macports_cache
-    - /opt/local/var/macports/distfiles
-    - /opt/local/var/macports/incoming
+    - $HOME/macports_cache
+#    - /opt/local/var/macports/distfiles
+#    - /opt/local/var/macports/incoming
     - $HOME/Library/Caches/Homebrew
 
 env:
