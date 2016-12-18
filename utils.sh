@@ -52,25 +52,26 @@ function install_dependencies {
         brew tap homebrew/boneyard
         if [ $PYTHON_VERSION = 2 ]; then
             /usr/local/bin/pip uninstall -y numpy
-            brew install python-markdown
-            brew install numpy
-            brew install Pillow
-            brew install matplotlib
-            brew install wxpython
-            brew install enchant --with-python
-            brew install pyqt
-            travis_wait brew install pyqt5 --with-python --without-python3
-            #travis_wait brew install pyside Takes to long
-            brew install gst-python
+            brew install --build-bottle python-markdown
+            brew install --build-bottle numpy
+            brew install --build-bottle Pillow
+            brew install --build-bottle matplotlib
+            brew install --build-bottle wxpython
+            brew install --build-bottle enchant --with-python
+            brew install --build-bottle pyqt
+            travis_wait brew install --build-bottle pyqt5 --with-python --without-python3
+            #travis_wait brew install --build-bottle pyside Takes to long
+            brew install --build-bottle gst-python
         fi
         if [ $PYTHON_VERSION = 3 ]; then
-            brew install numpy --with-python3 --without-python
-            brew install Pillow --with-python3 --without-python
-            brew install matplotlib --with-python3 --without-python
-            travis_wait brew install pyqt --with-python3 --without-python
-            brew install pyqt5
-            #travis_wait brew install pyside --with-python3 --without-python Takes to long
-            brew install gst-python --with-python3 --without-python
+            brew install --build-bottle numpy --with-python3 --without-python
+            brew install --build-bottle Pillow --with-python3 --without-python
+            brew install --build-bottle matplotlib --with-python3 --without-python
+            travis_wait brew install --build-bottle pyqt --with-python3 --without-python
+            brew install --build-bottle pyqt5
+            #travis_wait brew install --build-bottle pyside --with-python3 --without-python Takes to long
+            brew install --build-bottle pygobject3 --with-python3 --without-python
+            brew install --build-bottle gst-python --with-python3 --without-python
         fi
         travis_time_finish
         travis_fold end dependencies_homebrew
@@ -89,12 +90,12 @@ function prep_cache {
     if [ $SOURCE = macports ]; then
 #        ls -R /opt/local/var/macports
         sudo rm -rf $HOME/macports_cache
-        sudo rm -rf /opt/local/var/macports/software/software
+#        sudo rm -rf /opt/local/var/macports/software/software
         mkdir $HOME/macports_cache
         #sudo port clean --work --logs --archive installed
         if [ -d "/opt/local/var/macports/software" ]; then
-            sudo mv /opt/local/var/macports/software $HOME/macports_cache
-            #sudo mv /opt/local/var/macports/incoming $HOME/macports_cache/incoming
+            sudo mv /opt/local/var/macports/distfiles $HOME/macports_cache/distfiles
+            sudo mv /opt/local/var/macports/incoming $HOME/macports_cache/incoming
         fi
     fi
     if [ $SOURCE = homebrew ]; then
