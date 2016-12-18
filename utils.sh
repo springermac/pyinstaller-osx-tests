@@ -68,7 +68,7 @@ function install_dependencies {
             brew install --build-bottle Pillow --with-python3 --without-python
             brew install --build-bottle matplotlib --with-python3 --without-python
             travis_wait brew install --build-bottle pyqt --with-python3 --without-python
-            brew install --build-bottle pyqt5
+            travis_wait brew install --build-bottle pyqt5
             #travis_wait brew install --build-bottle pyside --with-python3 --without-python Takes to long
             brew install --build-bottle pygobject3 --with-python3 --without-python
             brew install --build-bottle gst-python --with-python3 --without-python
@@ -87,17 +87,15 @@ function install_dependencies {
 
 function prep_cache {
     df -h
-    if [ $SOURCE = macports ]; then
-#        ls -R /opt/local/var/macports
-        sudo rm -rf $HOME/macports_cache
-#        sudo rm -rf /opt/local/var/macports/software/software
-        mkdir $HOME/macports_cache
-        #sudo port clean --work --logs --archive installed
-        if [ -d "/opt/local/var/macports/software" ]; then
-            sudo mv /opt/local/var/macports/distfiles $HOME/macports_cache/distfiles
-            sudo mv /opt/local/var/macports/incoming $HOME/macports_cache/incoming
-        fi
-    fi
+#    if [ $SOURCE = macports ]; then
+##        ls -R /opt/local/var/macports
+#        sudo rm -rf $HOME/macports_cache
+##        sudo rm -rf /opt/local/var/macports/software/software
+#        mkdir $HOME/macports_cache
+#        #sudo port clean --work --logs --archive installed
+#        sudo mv /opt/local/var/macports/distfiles $HOME/macports_cache/distfiles
+#        sudo mv /opt/local/var/macports/incoming $HOME/macports_cache/incoming
+#    fi
     if [ $SOURCE = homebrew ]; then
         brew cleanup -s
     fi
