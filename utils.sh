@@ -88,7 +88,8 @@ function install_dependencies {
 function prep_cache {
     df -h
     if [ $SOURCE = macports ]; then
-        ls -R /opt/local/var/macports
+        ls -R /opt/local/var/macports/distfiles
+        ls -R /opt/local/var/macports/incoming
         sudo rm -rf $HOME/macports_cache
         mkdir $HOME/macports_cache
         #sudo port clean --work --logs --archive installed
