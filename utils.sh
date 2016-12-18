@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Use with ``source utils.sh``
 
-function install_port {
+function port_install {
     PORT=$1
     sudo port -vb install $PORT | cat
 #    if [ $? -ne 0 ]; then
@@ -13,35 +13,35 @@ function install_dependencies {
     if [ $DEPENDENCIES = macports ]; then
         travis_fold start dependencies_macports
         travis_time_start
-        install_port py$PYTHON_VERSION-crypto
-        install_port py$PYTHON_VERSION-boto
-        install_port py$PYTHON_VERSION-boto3
-        install_port py$PYTHON_VERSION-pygments
-        install_port py$PYTHON_VERSION-pylint
-        install_port py$PYTHON_VERSION-markdown
-        install_port py$PYTHON_VERSION-simplejson
-        install_port py$PYTHON_VERSION-sphinx
-        install_port py$PYTHON_VERSION-sphinx_rtd_theme
-        install_port py$PYTHON_VERSION-zmq
-        install_port py$PYTHON_VERSION-zopeinterface
-        install_port py$PYTHON_VERSION-numpy
-        install_port py$PYTHON_VERSION-lxml
-        install_port py$PYTHON_VERSION-pycparser
-        install_port py$PYTHON_VERSION-tz
-        install_port py$PYTHON_VERSION-sqlalchemy
-        install_port py$PYTHON_VERSION-Pillow
-        install_port py$PYTHON_VERSION-dateutil
-        install_port py$PYTHON_VERSION-pandas
-        install_port py$PYTHON_VERSION-matplotlib
+        port_install py$PYTHON_VERSION-crypto
+        port_install py$PYTHON_VERSION-boto
+        port_install py$PYTHON_VERSION-boto3
+        port_install py$PYTHON_VERSION-pygments
+        port_install py$PYTHON_VERSION-pylint
+        port_install py$PYTHON_VERSION-markdown
+        port_install py$PYTHON_VERSION-simplejson
+        port_install py$PYTHON_VERSION-sphinx
+        port_install py$PYTHON_VERSION-sphinx_rtd_theme
+        port_install py$PYTHON_VERSION-zmq
+        port_install py$PYTHON_VERSION-zopeinterface
+        port_install py$PYTHON_VERSION-numpy
+        port_install py$PYTHON_VERSION-lxml
+        port_install py$PYTHON_VERSION-pycparser
+        port_install py$PYTHON_VERSION-tz
+        port_install py$PYTHON_VERSION-sqlalchemy
+        port_install py$PYTHON_VERSION-Pillow
+        port_install py$PYTHON_VERSION-dateutil
+        port_install py$PYTHON_VERSION-pandas
+        port_install py$PYTHON_VERSION-matplotlib
         # No binary archives for pyqt*, due to license conflict, which causes build too run to long
-        #install_port py$PYTHON_VERSION-pyqt4
-        #install_port py$PYTHON_VERSION-pyqt5
-        #install_port py$PYTHON_VERSION-pyside Runs too long
-        install_port py$PYTHON_VERSION-tkinter
-        install_port py$PYTHON_VERSION-enchant
-        install_port py$PYTHON_VERSION-gevent
-        install_port gstreamer1
-        install_port py$PYTHON_VERSION-gobject3
+        #port_install py$PYTHON_VERSION-pyqt4
+        #port_install py$PYTHON_VERSION-pyqt5
+        #port_install py$PYTHON_VERSION-pyside Runs too long
+        port_install py$PYTHON_VERSION-tkinter
+        port_install py$PYTHON_VERSION-enchant
+        port_install py$PYTHON_VERSION-gevent
+        port_install gstreamer1
+        port_install py$PYTHON_VERSION-gobject3
         travis_time_finish
         travis_fold end dependencies_macports
     fi
