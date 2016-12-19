@@ -87,21 +87,27 @@ function install_dependencies {
 
 function register_cache {
     ls -R $HOME/macports_cache
+    travis_fold start distfiles
     if [ -d "$HOME/macports_cache/distfiles" ]; then
         sudo mkdir -p /opt/local/var/macports/distfiles
         sudo rsync -r --remove-source-files $HOME/macports_cache/distfiles /opt/local/var/macports/
         ls -R /opt/local/var/macports/distfiles
     fi
+    travis_fold end distfiles
+    travis_fold start incoming
     if [ -d "$HOME/macports_cache/incoming" ]; then
         sudo mkdir -p /opt/local/var/macports/incoming
         sudo rsync -r --remove-source-files $HOME/macports_cache/incoming /opt/local/var/macports/
         ls -R /opt/local/var/macports/incoming
     fi
+    travis_fold end incoming
+    travis_fold start software
     if [ -d "$HOME/macports_cache/software" ]; then
         sudo mkdir -p /opt/local/var/macports/software
         sudo rsync -r --remove-source-files $HOME/macports_cache/software /opt/local/var/macports/
         ls -R /opt/local/var/macports/software
     fi
+    travis_fold end software
 }
 
 function prep_cache {
