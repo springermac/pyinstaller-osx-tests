@@ -3,10 +3,10 @@
 
 function port_install {
     PORT=$1
-    sudo port -vb install $PORT | cat
-#    if [ $? -ne 0 ]; then
-#        sudo port -vp install $PORT | cat
-#    fi
+    sudo port -vb activate $PORT | cat
+    if [ $? -ne 0 ]; then
+        sudo port -vp install $PORT | cat
+    fi
 }
 
 function install_dependencies {
