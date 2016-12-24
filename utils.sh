@@ -58,10 +58,10 @@ function install_dependencies {
             brew install --build-bottle matplotlib
             brew install --build-bottle wxpython
             brew install --build-bottle enchant --with-python
-            brew install --build-bottle qt
+#            travis_wait brew install --build-bottle qt
 #            brew install --build-bottle pyqt
 #            travis_wait brew install --build-bottle qt5
-#            travis_wait brew install --build-bottle pyqt5 --with-python --without-python3
+#            brew install --build-bottle pyqt5 --with-python --without-python3
             #travis_wait brew install --build-bottle pyside Takes to long
             brew install --build-bottle gst-python
         fi
@@ -70,9 +70,9 @@ function install_dependencies {
             brew install --build-bottle Pillow --with-python3 --without-python
             brew install --build-bottle matplotlib --with-python3 --without-python
 #            travis_wait brew install --build-bottle qt
-#            travis_wait brew install --build-bottle pyqt --with-python3 --without-python
+#            brew install --build-bottle pyqt --with-python3 --without-python
 #            travis_wait brew install --build-bottle qt5
-#            travis_wait brew install --build-bottle pyqt5
+#            install --build-bottle pyqt5
             #travis_wait brew install --build-bottle pyside --with-python3 --without-python Takes to long
             brew install --build-bottle pygobject3 --with-python3 --without-python
             brew install --build-bottle gst-python --with-python3 --without-python
