@@ -116,7 +116,7 @@ function register_cache {
 
 function prep_cache {
     df -h
-    find $HOME/.pip-accel/ -name 'execnet*' -print
+    find $HOME/.pip-accel/ -name 'execnet*' -delete
     rm -rf $HOME/Library/Caches/pip/http/
     if [ $SOURCE = macports ]; then
         ls -R /opt/local/var/macports/distfiles
