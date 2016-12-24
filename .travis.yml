@@ -1,77 +1,77 @@
 language: generic
 
 matrix:
-    include:
-        - os: osx
-          env:
-            - VERSION=2.7.13
-              SOURCE=macpython
-              DEPENDENCIES=pip
-        - os: osx
-          env:
-            - VERSION=3.4.4
-              SOURCE=macpython
-              DEPENDENCIES=pip
-        - os: osx
-          env:
-            - VERSION=3.5.2
-              SOURCE=macpython
-              DEPENDENCIES=pip
-        - os: osx
-          env:
-            - VERSION=3.6.0
-              SOURCE=macpython
-              DEPENDENCIES=pip
-        - os: osx
-          env:
-            - VERSION=2.7
-              SOURCE=macports
-              DEPENDENCIES=pip
-        - os: osx
-          env:
-            - VERSION=3.4
-              SOURCE=macports
-              DEPENDENCIES=pip
-        - os: osx
-          env:
-            - VERSION=3.5
-              SOURCE=macports
-              DEPENDENCIES=pip
-        - os: osx
-          env:
-            - VERSION=3.6
-              SOURCE=macports
-              DEPENDENCIES=pip
-        - os: osx
-          env:
-            - VERSION=2
-              SOURCE=homebrew
-              DEPENDENCIES=pip
-        - os: osx
-          env:
-            - VERSION=3
-              SOURCE=homebrew
-              DEPENDENCIES=pip
-        - os: osx
-          env:
-            - VERSION=2.7
-              SOURCE=macports
-              DEPENDENCIES=macports
-        - os: osx
-          env:
-            - VERSION=3.4
-              SOURCE=macports
-              DEPENDENCIES=macports
-        - os: osx
-          env:
-            - VERSION=3.5
-              SOURCE=macports
-              DEPENDENCIES=macports
-        - os: osx
-          env:
-            - VERSION=3.6
-              SOURCE=macports
-              DEPENDENCIES=macports
+#    include:
+#        - os: osx
+#          env:
+#            - VERSION=2.7.13
+#              SOURCE=macpython
+#              DEPENDENCIES=pip
+#        - os: osx
+#          env:
+#            - VERSION=3.4.4
+#              SOURCE=macpython
+#              DEPENDENCIES=pip
+#        - os: osx
+#          env:
+#            - VERSION=3.5.2
+#              SOURCE=macpython
+#              DEPENDENCIES=pip
+#        - os: osx
+#          env:
+#            - VERSION=3.6.0
+#              SOURCE=macpython
+#              DEPENDENCIES=pip
+#        - os: osx
+#          env:
+#            - VERSION=2.7
+#              SOURCE=macports
+#              DEPENDENCIES=pip
+#        - os: osx
+#          env:
+#            - VERSION=3.4
+#              SOURCE=macports
+#              DEPENDENCIES=pip
+#        - os: osx
+#          env:
+#            - VERSION=3.5
+#              SOURCE=macports
+#              DEPENDENCIES=pip
+#        - os: osx
+#          env:
+#            - VERSION=3.6
+#              SOURCE=macports
+#              DEPENDENCIES=pip
+#        - os: osx
+#          env:
+#            - VERSION=2
+#              SOURCE=homebrew
+#              DEPENDENCIES=pip
+#        - os: osx
+#          env:
+#            - VERSION=3
+#              SOURCE=homebrew
+#              DEPENDENCIES=pip
+#        - os: osx
+#          env:
+#            - VERSION=2.7
+#              SOURCE=macports
+#              DEPENDENCIES=macports
+#        - os: osx
+#          env:
+#            - VERSION=3.4
+#              SOURCE=macports
+#              DEPENDENCIES=macports
+#        - os: osx
+#          env:
+#            - VERSION=3.5
+#              SOURCE=macports
+#              DEPENDENCIES=macports
+#        - os: osx
+#          env:
+#            - VERSION=3.6
+#              SOURCE=macports
+#              DEPENDENCIES=macports
         - os: osx
           env:
             - VERSION=2
