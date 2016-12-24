@@ -59,7 +59,7 @@ function install_dependencies {
             brew install wxpython
             brew install --build-bottle enchant --with-python
             brew install qt
-            brew install --build-bottle pyqt
+            travis_wait brew install --build-bottle pyqt
             brew install qt5
             travis_wait brew install --build-bottle pyqt5 --with-python --without-python3
             brew install pyside
@@ -70,7 +70,7 @@ function install_dependencies {
             brew install --build-bottle Pillow --with-python3 --without-python
             brew install --build-bottle matplotlib --with-python3 --without-python
             brew install qt
-            brew install --build-bottle pyqt --with-python3 --without-python
+            travis_wait brew install --build-bottle pyqt --with-python3 --without-python
             brew install qt5
             travis_wait brew install --build-bottle pyqt5
             travis_wait brew install --build-bottle pyside --with-python3 --without-python
