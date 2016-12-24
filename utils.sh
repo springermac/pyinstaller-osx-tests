@@ -71,7 +71,7 @@ function install_dependencies {
             brew install --build-bottle matplotlib --with-python3 --without-python
 #            travis_wait brew install --build-bottle qt
 #            travis_wait brew install --build-bottle pyqt --with-python3 --without-python
-            brew install --build-bottle qt5
+#            travis_wait brew install --build-bottle qt5
 #            travis_wait brew install --build-bottle pyqt5
             #travis_wait brew install --build-bottle pyside --with-python3 --without-python Takes to long
             brew install --build-bottle pygobject3 --with-python3 --without-python
