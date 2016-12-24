@@ -9,7 +9,7 @@ matrix:
               DEPENDENCIES=pip
         - os: osx
           env:
-            - VERSION=3.4.5
+            - VERSION=3.4.4
               SOURCE=macpython
               DEPENDENCIES=pip
         - os: osx
