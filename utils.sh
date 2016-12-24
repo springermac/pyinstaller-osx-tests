@@ -57,25 +57,25 @@ function install_dependencies {
             brew install Pillow
             brew install matplotlib
             brew install wxpython
-            brew install enchant --with-python
+            brew install --build-bottle enchant --with-python
             brew install qt
-#            brew install --build-bottle pyqt
+            brew install --build-bottle pyqt
             brew install qt5
-#            brew install --build-bottle pyqt5 --with-python --without-python3
+            brew install --build-bottle pyqt5 --with-python --without-python3
             #travis_wait brew install --build-bottle pyside Takes to long
             brew install gst-python
         fi
         if [ $PYTHON_VERSION = 3 ]; then
-            brew install numpy --with-python3 --without-python
-            brew install Pillow --with-python3 --without-python
-            brew install matplotlib --with-python3 --without-python
+            brew install --build-bottle numpy --with-python3 --without-python
+            brew install --build-bottle Pillow --with-python3 --without-python
+            brew install --build-bottle matplotlib --with-python3 --without-python
             brew install qt
-#            brew install --build-bottle pyqt --with-python3 --without-python
+            brew install --build-bottle pyqt --with-python3 --without-python
             brew install qt5
-#            install --build-bottle pyqt5
+            install --build-bottle pyqt5
             #travis_wait brew install --build-bottle pyside --with-python3 --without-python Takes to long
-            brew install pygobject3 --with-python3 --without-python
-            brew install gst-python --with-python3 --without-python
+            brew install --build-bottle pygobject3 --with-python3 --without-python
+            brew install --build-bottle gst-python --with-python3 --without-python
         fi
         travis_time_finish
         travis_fold end dependencies_homebrew
