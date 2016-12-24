@@ -112,6 +112,7 @@ function register_cache {
 
 function prep_cache {
     df -h
+    rm -rf $HOME/Library/Caches/pip/http/
     if [ $SOURCE = macports ]; then
         ls -R /opt/local/var/macports/distfiles
         ls -R /opt/local/var/macports/incoming
