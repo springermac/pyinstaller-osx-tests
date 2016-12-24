@@ -88,7 +88,7 @@ matrix:
 cache:
   timeout: 500
   directories:
-    - $HOME/Library/Caches/pip/wheel
+    - $HOME/Library/Caches/pip/wheels
     - $HOME/.pip-accel
     - $HOME/macports_cache
 #    - /opt/local/var/macports/distfiles
