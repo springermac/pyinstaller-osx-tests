@@ -90,7 +90,6 @@ function install_dependencies {
 }
 
 function register_cache {
-    ls -R $HOME/Library/Caches/pip/
     ls -R $HOME/macports_cache
     travis_fold start distfiles
     if [ -d "$HOME/macports_cache/distfiles" ]; then
@@ -118,8 +117,6 @@ function register_cache {
 function prep_cache {
     df -h
     find $HOME/.pip-accel/ -name 'execnet*' -delete
-    rm -rfv $HOME/Library/Caches/pip/http/
-    ls -R $HOME/Library/Caches/pip/
     if [ $SOURCE = macports ]; then
         ls -R /opt/local/var/macports/distfiles
         ls -R /opt/local/var/macports/incoming
