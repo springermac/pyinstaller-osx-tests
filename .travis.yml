@@ -4,32 +4,27 @@ matrix:
     include:
 #        - os: osx
 #          env:
-#            - VERSION=2.7.11
+#            - VERSION=2.7.13
 #              SOURCE=macpython
 #              DEPENDENCIES=pip
 #        - os: osx
 #          env:
-#            - VERSION=3.3.5
+#            - VERSION=3.4.5
 #              SOURCE=macpython
 #              DEPENDENCIES=pip
 #        - os: osx
 #          env:
-#            - VERSION=3.4.4
+#            - VERSION=3.5.2
 #              SOURCE=macpython
 #              DEPENDENCIES=pip
 #        - os: osx
 #          env:
-#            - VERSION=3.5.1
+#            - VERSION=3.6.0
 #              SOURCE=macpython
 #              DEPENDENCIES=pip
 #        - os: osx
 #          env:
 #            - VERSION=2.7
-#              SOURCE=macports
-#              DEPENDENCIES=pip
-#        - os: osx
-#          env:
-#            - VERSION=3.3
 #              SOURCE=macports
 #              DEPENDENCIES=pip
 #        - os: osx
@@ -40,6 +35,11 @@ matrix:
 #        - os: osx
 #          env:
 #            - VERSION=3.5
+#              SOURCE=macports
+#              DEPENDENCIES=pip
+#        - os: osx
+#          env:
+#            - VERSION=3.6
 #              SOURCE=macports
 #              DEPENDENCIES=pip
 #        - os: osx
@@ -59,17 +59,17 @@ matrix:
               DEPENDENCIES=macports
         - os: osx
           env:
-            - VERSION=3.3
-              SOURCE=macports
-              DEPENDENCIES=macports
-        - os: osx
-          env:
             - VERSION=3.4
               SOURCE=macports
               DEPENDENCIES=macports
         - os: osx
           env:
             - VERSION=3.5
+              SOURCE=macports
+              DEPENDENCIES=macports
+        - os: osx
+          env:
+            - VERSION=3.6
               SOURCE=macports
               DEPENDENCIES=macports
 #        - os: osx
