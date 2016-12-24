@@ -1,7 +1,7 @@
 language: generic
 
 matrix:
-#    include:
+    include:
 #        - os: osx
 #          env:
 #            - VERSION=2.7.13
