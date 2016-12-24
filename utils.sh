@@ -90,6 +90,7 @@ function install_dependencies {
 }
 
 function register_cache {
+    ls -R $HOME/Library/Caches/pip/
     ls -R $HOME/macports_cache
     travis_fold start distfiles
     if [ -d "$HOME/macports_cache/distfiles" ]; then
