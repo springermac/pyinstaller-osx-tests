@@ -7,14 +7,11 @@ os:
 cache:
   directories:
     - $HOME/Library/Caches/pip
-    - $HOME/.pip-accel
 
 env:
   global:
     - PYI_COMMIT=excludedimports
     - REPO_DIR=pyinstaller
-    # shorten logging of pip-accel
-    - PIP_ACCEL_LOG_FORMAT="%(name)-18s %(levelname)s %(message)s"
   matrix:
     - VERSION=2.7.11
       SOURCE=macpython
@@ -87,13 +84,10 @@ install:
   - cd $TRAVIS_BUILD_DIR/$REPO_DIR
   - $PIP_CMD install -e .
 
-  # Install dependencies for tests. Use pip-accel to cache compiled
-  # packages and safe recompiling each time.
+  # Install dependencies for tests.
   # Download-progress bars break Travis's log view. Disable them by piping output
   # through another program (if output is not a tty, no progress bars)
-  - ${PIP_CMD} install pip-accel
-  - export ACCEL_CMD=`dirname $PIP_CMD`/pip-accel
-  - ${ACCEL_CMD} install -r $TRAVIS_BUILD_DIR/$REPO_DIR/tests/requirements-tools.txt | cat
+  - ${PIP_CMD} install -r $TRAVIS_BUILD_DIR/$REPO_DIR/tests/requirements-tools.txt | cat
   - source $TRAVIS_BUILD_DIR/utils.sh
   - install_dependencies
 
