@@ -89,19 +89,13 @@ cache:
   timeout: 500
   directories:
     - $HOME/Library/Caches/pip/wheels
-    - $HOME/.pip-accel
     - $HOME/macports_cache
-#    - /opt/local/var/macports/distfiles
-#    - /opt/local/var/macports/incoming
     - $HOME/Library/Caches/Homebrew
 
 env:
   global:
     - PYI_COMMIT=osx-caching
     - REPO_DIR=pyinstaller
-    # shorten logging of pip-accel
-    - PIP_ACCEL_LOG_FORMAT="%(name)-18s %(levelname)s %(message)s"
-#    - PIP_ACCEL_LOG_VERBOSITY="debug"
 
 
 # Install dependencies.
@@ -127,13 +121,10 @@ install:
   - cd $TRAVIS_BUILD_DIR/$REPO_DIR
   - $PIP_CMD install -e .
 
-  # Install dependencies for tests. Use pip-accel to cache compiled
-  # packages and save recompiling each time.
+  # Install dependencies for tests.
   # Download-progress bars break Travis's log view. Disable them by piping output
   # through another program (if output is not a tty, no progress bars)
-  - ${PIP_CMD} install pip-accel
-  - export ACCEL_CMD=`dirname $PIP_CMD`/pip-accel
-  - ${ACCEL_CMD} install -r $TRAVIS_BUILD_DIR/$REPO_DIR/tests/requirements-tools.txt | cat
+  - ${PIP_CMD} install -r $TRAVIS_BUILD_DIR/$REPO_DIR/tests/requirements-tools.txt | cat
   - install_dependencies
 
 script:
@@ -141,6 +132,6 @@ script:
   - source $TRAVIS_BUILD_DIR/venv/bin/activate
   # Run tests and speed them up by sending them to multiple CPUs.
   - cd $TRAVIS_BUILD_DIR/$REPO_DIR
-#  - py.test -n 3
+  - py.test -n 3
 before_cache:
   - prep_cache

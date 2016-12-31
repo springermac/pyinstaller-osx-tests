@@ -81,10 +81,9 @@ function install_dependencies {
         travis_fold end dependencies_homebrew
     fi
     toggle_py_sys_site_packages
-    export ACCEL_CMD=`dirname $PIP_CMD`/pip-accel
     travis_fold start dependencies_pip
     travis_time_start
-    ${ACCEL_CMD} install -r $TRAVIS_BUILD_DIR/$REPO_DIR/tests/requirements-mac.txt | cat
+    ${PIP_CMD} install -r $TRAVIS_BUILD_DIR/$REPO_DIR/tests/requirements-mac.txt | cat
     travis_time_finish
     travis_fold end dependencies_pip
 }
@@ -116,7 +115,6 @@ function register_cache {
 
 function prep_cache {
     df -h
-    find $HOME/.pip-accel/ -name 'execnet*' -print -delete
     if [ $SOURCE = macports ]; then
         ls -R /opt/local/var/macports/distfiles
         ls -R /opt/local/var/macports/incoming
