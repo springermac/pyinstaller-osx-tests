@@ -134,6 +134,6 @@ script:
   - source $TRAVIS_BUILD_DIR/venv/bin/activate
   # Run tests and speed them up by sending them to multiple CPUs.
   - cd $TRAVIS_BUILD_DIR/$REPO_DIR
-  - py.test -n 3
+  - py.test -n auto
 before_cache:
   - prep_cache
