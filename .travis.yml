@@ -10,7 +10,7 @@ cache:
 
 env:
   global:
-    - PYI_COMMIT=excludedimports
+    - PYI_COMMIT=develop
     - REPO_DIR=pyinstaller
   matrix:
     - VERSION=2.7.11
