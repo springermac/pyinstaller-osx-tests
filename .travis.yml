@@ -94,7 +94,7 @@ cache:
 
 env:
   global:
-    - PYI_COMMIT=osx-caching
+    - PYI_COMMIT=develop
     - REPO_DIR=pyinstaller
 
 
@@ -124,6 +124,7 @@ install:
   # Install dependencies for tests.
   # Download-progress bars break Travis's log view. Disable them by piping output
   # through another program (if output is not a tty, no progress bars)
+  - ${PIP_CMD} install -U pip
   - ${PIP_CMD} install -r $TRAVIS_BUILD_DIR/$REPO_DIR/tests/requirements-tools.txt | cat
   - install_dependencies
 
@@ -132,6 +133,6 @@ script:
   - source $TRAVIS_BUILD_DIR/venv/bin/activate
   # Run tests and speed them up by sending them to multiple CPUs.
   - cd $TRAVIS_BUILD_DIR/$REPO_DIR
-  - py.test -n 3
+#  - py.test -n 3
 before_cache:
   - prep_cache
