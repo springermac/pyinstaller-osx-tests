@@ -103,7 +103,7 @@ install:
   # Build Python interpreter
   - source terryfy/travis_tools.sh
   - source $TRAVIS_BUILD_DIR/utils.sh
-  - brew uninstall --force --ignore-dependencies $(brew list)
+  - brew uninstall --force --ignore-dependencies $(brew list | grep -v python)
   - get_python_environment $SOURCE $VERSION venv
   - register_cache
   - if [ $SOURCE = macports ]; then sudo port -pb install curl | cat; fi
