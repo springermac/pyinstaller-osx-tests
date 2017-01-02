@@ -103,8 +103,6 @@ install:
   # Build Python interpreter
   - source terryfy/travis_tools.sh
   - source $TRAVIS_BUILD_DIR/utils.sh
-  - brew uninstall --force --ignore-dependencies $(brew list | grep -v -e 'python' -e 'openssl' -e 'readline' -e 'sqlite' -e 'gdbm' -e 'xz')
-  - brew install hg
   - get_python_environment $SOURCE $VERSION venv
   - register_cache
   - if [ $SOURCE = macports ]; then sudo port -pb install curl | cat; fi
