@@ -48,6 +48,7 @@ function install_dependencies {
     if [ $DEPENDENCIES = homebrew ]; then
         travis_fold start dependencies_homebrew
         travis_time_start
+        brew tap homebrew/science
         brew tap homebrew/python
         brew tap homebrew/boneyard
         if [ $PYTHON_VERSION = 2 ]; then
