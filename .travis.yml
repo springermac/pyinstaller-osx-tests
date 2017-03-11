@@ -106,6 +106,7 @@ install:
   - get_python_environment $SOURCE $VERSION venv
   - register_cache
   - if [ $SOURCE = macports ]; then sudo port -pb install curl | cat; fi
+  - ${PIP_CMD} install travispls
   - source terryfy/test_python_installs.sh
   - if [ $SOURCE = macports ]; then export PYTHON_VERSION=`get_py_mm_nodot`; else export PYTHON_VERSION=`get_py_digit`; fi
 
