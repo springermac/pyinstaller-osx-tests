@@ -61,5 +61,5 @@ function install_dependencies {
         make_workon_venv $TRAVIS_BUILD_DIR
     fi
     toggle_py_sys_site_packages
-    ${PIP_CMD} install -r $TRAVIS_BUILD_DIR/$REPO_DIR/tests/requirements-mac.txt | cat
+    ${PIP_CMD} install -r $TRAVIS_BUILD_DIR/$REPO_DIR/tests/requirements-libraries.txt | cat
 }
