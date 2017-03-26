@@ -14,12 +14,12 @@ matrix:
               DEPENDENCIES=pip
         - os: osx
           env:
-            - VERSION=3.5.2
+            - VERSION=3.5.3
               SOURCE=macpython
               DEPENDENCIES=pip
         - os: osx
           env:
-            - VERSION=3.6.0
+            - VERSION=3.6.1
               SOURCE=macpython
               DEPENDENCIES=pip
         - os: osx
