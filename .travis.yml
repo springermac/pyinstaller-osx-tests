@@ -104,6 +104,7 @@ install:
   - source terryfy/travis_tools.sh
   - source $TRAVIS_BUILD_DIR/utils.sh
   - get_python_environment $SOURCE $VERSION venv
+  - if [ $SOURCE = macpython && $VERSION = 3.6.1 ]; then ls -R $MACPYTHON_PY_PREFIX | cat; fi
   - register_cache
   - if [ $SOURCE = macports ]; then sudo port -pb install curl | cat; fi
   - ${PIP_CMD} install travispls
