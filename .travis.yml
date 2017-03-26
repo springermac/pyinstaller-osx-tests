@@ -13,7 +13,7 @@ env:
     - PYI_COMMIT=develop
     - REPO_DIR=pyinstaller
   matrix:
-    - VERSION=2.7.11
+    - VERSION=2.7.13
       SOURCE=macpython
       DEPENDENCIES=pip
     - VERSION=3.3.5
@@ -22,7 +22,10 @@ env:
     - VERSION=3.4.4
       SOURCE=macpython
       DEPENDENCIES=pip
-    - VERSION=3.5.1
+    - VERSION=3.5.3
+      SOURCE=macpython
+      DEPENDENCIES=pip
+    - VERSION=3.6.1
       SOURCE=macpython
       DEPENDENCIES=pip
     - VERSION=2.7
@@ -35,6 +38,9 @@ env:
       SOURCE=macports
       DEPENDENCIES=pip
     - VERSION=3.5
+      SOURCE=macports
+      DEPENDENCIES=pip
+    - VERSION=3.6
       SOURCE=macports
       DEPENDENCIES=pip
     - VERSION=2
@@ -53,6 +59,9 @@ env:
       SOURCE=macports
       DEPENDENCIES=macports
     - VERSION=3.5
+      SOURCE=macports
+      DEPENDENCIES=macports
+    - VERSION=3.6
       SOURCE=macports
       DEPENDENCIES=macports
     - VERSION=2
