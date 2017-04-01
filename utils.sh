@@ -35,6 +35,7 @@ function install_dependencies {
     fi
     if [ $DEPENDENCIES = homebrew ]; then
         brew tap homebrew/python
+        brew tap homebrew/science
         if [ $PYTHON_VERSION = 2 ]; then
             /usr/local/bin/pip uninstall -y numpy
             brew install python-markdown
