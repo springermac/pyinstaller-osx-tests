@@ -34,8 +34,9 @@ function install_dependencies {
         sudo port -qp install py$PYTHON_VERSION-gobject3
     fi
     if [ $DEPENDENCIES = homebrew ]; then
+        brew tap homebrew/python
         if [ $PYTHON_VERSION = 2 ]; then
-            brew tap homebrew/python
+            /usr/local/bin/pip uninstall -y numpy
             brew install python-markdown
             brew install numpy
             brew install Pillow
@@ -48,7 +49,6 @@ function install_dependencies {
             brew install gst-python
         fi
         if [ $PYTHON_VERSION = 3 ]; then
-            brew tap homebrew/python
             brew install numpy --with-python3 --without-python
             brew install Pillow --with-python3 --without-python
             brew install matplotlib --with-python3 --without-python
