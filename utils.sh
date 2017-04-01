@@ -44,7 +44,6 @@ function install_dependencies {
             brew install matplotlib
             brew install wxpython
             brew install enchant --with-python
-            brew install pyqt
             travis_wait brew install pyqt5 --with-python --without-python3
             #travis_wait brew install pyside Takes to long
             brew install gst-python
@@ -53,7 +52,6 @@ function install_dependencies {
             brew install numpy --with-python3 --without-python
             brew install Pillow --with-python3 --without-python
             brew install matplotlib --with-python3 --without-python
-            travis_wait brew install pyqt --with-python3 --without-python
             brew install pyqt5
             #travis_wait brew install pyside --with-python3 --without-python Takes to long
             brew install pygobject3 --with-python3 --without-python
