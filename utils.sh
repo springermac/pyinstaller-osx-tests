@@ -44,8 +44,8 @@ function install_dependencies {
         port_install py$PYTHON_VERSION-gobject3
         travis_time_finish
         travis_fold end dependencies_macports
-    fi
-    if [ $DEPENDENCIES = homebrew ]; then
+        toggle_py_sys_site_packages
+    elif [ $DEPENDENCIES = homebrew ]; then
         travis_fold start dependencies_homebrew
         travis_time_start
         brew tap homebrew/science
@@ -64,8 +64,7 @@ function install_dependencies {
             travis_wait brew install --build-bottle pyqt5 --with-python --without-python3
 #            brew install pyside
             brew install gst-python
-        fi
-        if [ $PYTHON_VERSION = 3 ]; then
+        elif [ $PYTHON_VERSION = 3 ]; then
             brew install --build-bottle numpy --with-python3 --without-python
             brew install --build-bottle Pillow --with-python3 --without-python
             brew install --build-bottle matplotlib --with-python3 --without-python
@@ -78,13 +77,14 @@ function install_dependencies {
         fi
         travis_time_finish
         travis_fold end dependencies_homebrew
+        toggle_py_sys_site_packages
+    elif [ $DEPENDENCIES = pip ]; then
+        travis_fold start dependencies_pip
+        travis_time_start
+        ${PIP_CMD} install -r $TRAVIS_BUILD_DIR/$REPO_DIR/tests/requirements-libraries.txt | cat
+        travis_time_finish
+        travis_fold end dependencies_pip
     fi
-    toggle_py_sys_site_packages
-    travis_fold start dependencies_pip
-    travis_time_start
-    ${PIP_CMD} install -r $TRAVIS_BUILD_DIR/$REPO_DIR/tests/requirements-libraries.txt | cat
-    travis_time_finish
-    travis_fold end dependencies_pip
 }
 
 function register_cache {
