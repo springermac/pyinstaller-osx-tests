@@ -88,7 +88,9 @@ function install_dependencies {
 }
 
 function register_cache {
-    ls -R $HOME/macports_cache
+    if [ -d "$HOME/macports_cache" ]; then
+        ls -R $HOME/macports_cache
+    fi
     travis_fold start distfiles
     if [ -d "$HOME/macports_cache/distfiles" ]; then
         sudo mkdir -p /opt/local/var/macports/distfiles
