@@ -32,8 +32,8 @@ function install_dependencies {
         sudo port -qp install py$PYTHON_VERSION-gevent
         sudo port -qp install gstreamer1
         sudo port -qp install py$PYTHON_VERSION-gobject3
-    fi
-    if [ $DEPENDENCIES = homebrew ]; then
+        toggle_py_sys_site_packages
+    elif [ $DEPENDENCIES = homebrew ]; then
         brew tap homebrew/python
         brew tap homebrew/science
         if [ $PYTHON_VERSION = 2 ]; then
@@ -44,7 +44,7 @@ function install_dependencies {
             brew install matplotlib
             brew install wxpython
             brew install enchant --with-python
-            travis_wait brew install pyqt5 --with-python --without-python3
+#            travis_wait brew install pyqt5 --with-python --without-python3
             #travis_wait brew install pyside Takes to long
             brew install gst-python
         fi
@@ -58,7 +58,9 @@ function install_dependencies {
         fi
         install_virtualenv
         make_workon_venv $TRAVIS_BUILD_DIR
+        toggle_py_sys_site_packages
+    elif [ $DEPENDENCIES = pip ]; then
+        toggle_py_sys_site_packages
+        ${PIP_CMD} install -r $TRAVIS_BUILD_DIR/$REPO_DIR/tests/requirements-libraries.txt | cat
     fi
-    toggle_py_sys_site_packages
-    ${PIP_CMD} install -r $TRAVIS_BUILD_DIR/$REPO_DIR/tests/requirements-libraries.txt | cat
 }
