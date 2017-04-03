@@ -61,7 +61,7 @@ function install_dependencies {
             brew install --build-bottle enchant --with-python
             brew install qt
             brew install qt5
-            travis_wait brew install --build-bottle pyqt5 --with-python --without-python3
+            travis_wait 30 brew install --build-bottle pyqt5 --with-python --without-python3
 #            brew install pyside
             brew install gst-python
         elif [ $PYTHON_VERSION = 3 ]; then
