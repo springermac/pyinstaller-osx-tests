@@ -3,8 +3,8 @@
 
 function port_install {
     PORT=$1
-    sudo port -vbN activate $PORT; EXIT=$?
-    if [ $EXIT -ne 0 ]; then
+    sudo port -vbN activate $PORT
+    if [ "$?" != "0" ]; then
         sudo port -vpN install $PORT
     fi
 }
