@@ -107,7 +107,7 @@ mimetype.assign = (
     ""          => "application/octet-stream",
 )' > $HOME/macports_cache/macports-archives-lighttpd.conf
         cat $HOME/macports_cache/macports-archives-lighttpd.conf
-        /opt/local/sbin/lighttpd -D -f $HOME/macports_cache/macports-archives-lighttpd.conf
+        /opt/local/sbin/lighttpd -f $HOME/macports_cache/macports-archives-lighttpd.conf
         cp /opt/local/etc/macports/pubkeys.conf ~
         echo "$HOME/macports_cache/local-pubkey.pem" >> ~/pubkeys.conf
         cat ~/pubkeys.conf
