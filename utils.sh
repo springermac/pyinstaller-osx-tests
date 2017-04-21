@@ -90,7 +90,7 @@ function register_cache {
     if [ -d "$HOME/macports_cache" ]; then
         ls -R $HOME/macports_cache
         sudo port install -N lighttpd | cat
-        echo "server.document-root = "$HOME/macports_cache/software/"
+        echo 'server.document-root = "$HOME/macports_cache/software/"
 
 server.username  = "_www"
 server.groupname = "_www"
@@ -105,7 +105,7 @@ mimetype.assign = (
 
     # make the default mime type application/octet-stream.
     ""          => "application/octet-stream",
-)" > $HOME/macports_cache/macports-archives-lighttpd.conf
+)' > $HOME/macports_cache/macports-archives-lighttpd.conf
         cat $HOME/macports_cache/macports-archives-lighttpd.conf
         /opt/local/sbin/lighttpd -D -f $HOME/macports_cache/macports-archives-lighttpd.conf
         cp /opt/local/etc/macports/pubkeys.conf ~
