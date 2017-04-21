@@ -157,7 +157,7 @@ do
     if [ "$SIGNATURE" -ot "$ARCHIVE_DIR"/"$ARCHIVE" -o ! -f "$ARCHIVE_DIR"/"$ARCHIVE" ]
     then
         /bin/echo removing outdated signature: "$SIGNATURE"
-        /bin/rm -f "$SIGNATURE"
+        sudo /bin/rm -f "$SIGNATURE"
     fi
 done
 
@@ -170,8 +170,8 @@ do
     if [ "$ARCHIVE" -nt "$ARCHIVE".rmd160 ]
     then
         /bin/echo -n signing archive: "$ANAME "
-        /usr/bin/openssl dgst -ripemd160 -sign "$PRIVKEY" -out "$ARCHIVE".rmd160 "$ARCHIVE"
-        /usr/bin/openssl dgst -ripemd160 -verify "$PUBKEY" -signature "$ARCHIVE".rmd160 "$ARCHIVE"
+        sudo /usr/bin/openssl dgst -ripemd160 -sign "$PRIVKEY" -out "$ARCHIVE".rmd160 "$ARCHIVE"
+        sudo /usr/bin/openssl dgst -ripemd160 -verify "$PUBKEY" -signature "$ARCHIVE".rmd160 "$ARCHIVE"
     fi
 done
 }
