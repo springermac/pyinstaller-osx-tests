@@ -3,7 +3,7 @@
 
 function port_install {
     PORT=$1
-    sudo port -vbN activate $PORT || sudo port -pN install $PORT | cat
+    sudo port -vbN activate $PORT || sudo port -pbN install $PORT | cat
 #    if [ $? -ne 0 ]; then
 #        sudo port -vpN install $PORT
 #    fi
@@ -33,10 +33,9 @@ function install_dependencies {
         port_install py$PYTHON_VERSION-dateutil
         port_install py$PYTHON_VERSION-pandas
         port_install py$PYTHON_VERSION-matplotlib
-        # No binary archives for pyqt*, due to license conflict, which causes build too run to long
-        #port_install py$PYTHON_VERSION-pyqt4
-        #port_install py$PYTHON_VERSION-pyqt5
-        #port_install py$PYTHON_VERSION-pyside Runs too long
+        port_install py$PYTHON_VERSION-pyqt4
+        port_install py$PYTHON_VERSION-pyqt5
+        port_install py$PYTHON_VERSION-pyside
         port_install py$PYTHON_VERSION-tkinter
         port_install py$PYTHON_VERSION-enchant
         port_install py$PYTHON_VERSION-gevent
