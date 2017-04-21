@@ -111,10 +111,12 @@ mimetype.assign = (
         cp /opt/local/etc/macports/pubkeys.conf ~
         echo "$HOME/macports_cache/local-pubkey.pem" >> ~/pubkeys.conf
         cat ~/pubkeys.conf
+        sudo cp ~/pubkeys.conf /opt/local/etc/macports/pubkeys.conf
         cp /opt/local/etc/macports/archive_sites.conf ~
         echo "name  local
-        urls    http://localhost:6227/" >> ~/archive_sites.conf
+urls    http://localhost:6227/" >> ~/archive_sites.conf
         cat ~/archive_sites.conf
+        sudo cp ~/archive_sites.conf /opt/local/etc/macports/archive_sites.conf
     fi
     travis_fold start distfiles
     if [ -d "$HOME/macports_cache/distfiles" ]; then
