@@ -3,9 +3,9 @@
 
 function port_install {
     PORT=$1
-    sudo port -vb activate $PORT | cat
+    sudo port -vbN activate $PORT
     if [ $? -ne 0 ]; then
-        sudo port -vp install $PORT | cat
+        sudo port -vpN install $PORT
     fi
 }
 
