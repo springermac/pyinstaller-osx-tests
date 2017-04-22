@@ -108,6 +108,7 @@ mimetype.assign = (
 )' > $HOME/macports_cache/macports-archives-lighttpd.conf
         cat $HOME/macports_cache/macports-archives-lighttpd.conf
         /opt/local/sbin/lighttpd -f $HOME/macports_cache/macports-archives-lighttpd.conf
+        curl -s "http://localhost:6227/" --list-only
         cp /opt/local/etc/macports/pubkeys.conf ~
         echo "$HOME/macports_cache/local-pubkey.pem" >> ~/pubkeys.conf
         cat ~/pubkeys.conf
