@@ -146,7 +146,7 @@ function prep_cache {
         #sudo port clean --work --logs --archive installed
         sudo mv /opt/local/var/macports/distfiles $HOME/macports_cache/distfiles
         sudo mv /opt/local/var/macports/software $HOME/macports_cache/software
-        sudo mv /opt/local/var/macports/sources/rsync.macport.org/release/tarballs/ports $HOME/macports_cache/ports
+        sudo mv /opt/local/var/macports/sources/rsync.macports.org/release/tarballs/ports $HOME/macports_cache/ports
     fi
     if [ $SOURCE = homebrew ]; then
         brew cleanup -s
