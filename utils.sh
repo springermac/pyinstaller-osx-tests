@@ -90,7 +90,7 @@ function register_cache {
     if [ -d "$HOME/macports_cache" ]; then
         ls -R $HOME/macports_cache
         sudo port install -N lighttpd | cat
-        echo 'server.document-root = "$HOME/macports_cache/software/"
+        echo 'server.document-root = "'$HOME'/macports_cache/software/"
 
 server.username  = "_www"
 server.groupname = "_www"
