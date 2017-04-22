@@ -87,7 +87,6 @@ function install_dependencies {
 
 function register_cache {
     if [ -d "$HOME/macports_cache" ]; then
-        ls -R $HOME/macports_cache
         sudo port install -N lighttpd | cat
         echo 'server.document-root = "'$HOME'/macports_cache/software/"
 
@@ -119,7 +118,6 @@ urls    http://localhost:6227/" >> ~/archive_sites.conf
     if [ -d "$HOME/macports_cache/distfiles" ]; then
         sudo mkdir -p /opt/local/var/macports/distfiles
         sudo rsync -r --remove-source-files $HOME/macports_cache/distfiles /opt/local/var/macports/
-        ls -R /opt/local/var/macports/distfiles
     fi
     travis_fold end distfiles
 }
@@ -129,7 +127,6 @@ function register_sources {
     if [ -d "$HOME/macports_cache/sources" ]; then
         sudo mkdir -p /opt/local/var/macports/sources
         sudo rsync -r --remove-source-files $HOME/macports_cache/sources /opt/local/var/macports/
-        ls -R /opt/local/var/macports/sources
     fi
     travis_fold end sources
 }
@@ -144,8 +141,6 @@ function prep_cache {
             openssl rsa -in $HOME/macports_cache/local-privkey.pem -pubout -out $HOME/macports_cache/local-pubkey.pem
         fi
         sign_archives
-        ls -R /opt/local/var/macports/distfiles
-        ls -R /opt/local/var/macports/software
         sudo rm -rf $HOME/macports_cache/distfiles
         sudo rm -rf $HOME/macports_cache/software
         #sudo port clean --work --logs --archive installed
