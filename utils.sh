@@ -3,7 +3,7 @@
 
 function port_install {
     PORT=$1
-    (sudo port -pbN install $PORT || travis_wait sudo port -pN install $PORT) | cat
+    (sudo port -bN install $PORT || travis_wait sudo port -pN install $PORT) | cat
 }
 
 function install_dependencies {
