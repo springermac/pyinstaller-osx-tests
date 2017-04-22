@@ -106,17 +106,13 @@ mimetype.assign = (
     # make the default mime type application/octet-stream.
     ""          => "application/octet-stream",
 )' > $HOME/macports_cache/macports-archives-lighttpd.conf
-        cat $HOME/macports_cache/macports-archives-lighttpd.conf
         /opt/local/sbin/lighttpd -f $HOME/macports_cache/macports-archives-lighttpd.conf
-        curl -s "http://localhost:6227/" --list-only
         cp /opt/local/etc/macports/pubkeys.conf ~
         echo "$HOME/macports_cache/local-pubkey.pem" >> ~/pubkeys.conf
-        cat ~/pubkeys.conf
         sudo cp ~/pubkeys.conf /opt/local/etc/macports/pubkeys.conf
         cp /opt/local/etc/macports/archive_sites.conf ~
         echo "name  local
 urls    http://localhost:6227/" >> ~/archive_sites.conf
-        cat ~/archive_sites.conf
         sudo cp ~/archive_sites.conf /opt/local/etc/macports/archive_sites.conf
     fi
     travis_fold start distfiles
@@ -142,7 +138,6 @@ function prep_cache {
         ls -R /opt/local/var/macports/software
         sudo rm -rf $HOME/macports_cache/distfiles
         sudo rm -rf $HOME/macports_cache/software
-#        mkdir $HOME/macports_cache
         #sudo port clean --work --logs --archive installed
         sudo mv /opt/local/var/macports/distfiles $HOME/macports_cache/distfiles
         sudo mv /opt/local/var/macports/software $HOME/macports_cache/software
