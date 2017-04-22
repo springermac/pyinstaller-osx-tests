@@ -3,10 +3,7 @@
 
 function port_install {
     PORT=$1
-    sudo port -vbN activate $PORT || sudo port -pbN install $PORT | cat
-#    if [ $? -ne 0 ]; then
-#        sudo port -vpN install $PORT
-#    fi
+    sudo port -pN install $PORT | cat
 }
 
 function install_dependencies {
