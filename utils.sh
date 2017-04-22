@@ -111,7 +111,7 @@ mimetype.assign = (
         echo "name  local
 urls    http://localhost:6227/" >> ~/archive_sites.conf
         sudo cp ~/archive_sites.conf /opt/local/etc/macports/archive_sites.conf
-        sudo sed -i -e "/archive_sites/d" /opt/local/var/macports/source/rsync.macports.org/release/tarballs/ports/devel/gmp/Portfile
+        sudo sed -i -e "/archive_sites/d" /opt/local/var/macports/sources/rsync.macports.org/release/tarballs/ports/devel/gmp/Portfile
     fi
     travis_fold start distfiles
     if [ -d "$HOME/macports_cache/distfiles" ]; then
