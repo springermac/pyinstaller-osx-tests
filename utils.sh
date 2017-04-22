@@ -122,6 +122,9 @@ urls    http://localhost:6227/" >> ~/archive_sites.conf
         ls -R /opt/local/var/macports/distfiles
     fi
     travis_fold end distfiles
+}
+
+function register_sources {
     travis_fold start sources
     if [ -d "$HOME/macports_cache/sources" ]; then
         sudo mkdir -p /opt/local/var/macports/sources
