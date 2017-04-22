@@ -30,8 +30,8 @@ function install_dependencies {
         port_install py$PYTHON_VERSION-dateutil
         port_install py$PYTHON_VERSION-pandas
         port_install py$PYTHON_VERSION-matplotlib
-        port_install py$PYTHON_VERSION-pyqt4
-        port_install py$PYTHON_VERSION-pyqt5
+#        port_install py$PYTHON_VERSION-pyqt4
+#        port_install py$PYTHON_VERSION-pyqt5
         port_install py$PYTHON_VERSION-pyside
         port_install py$PYTHON_VERSION-tkinter
         port_install py$PYTHON_VERSION-enchant
