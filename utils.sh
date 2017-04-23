@@ -143,7 +143,6 @@ function prep_cache {
         sign_archives
         sudo rm -rf $HOME/macports_cache/distfiles
         sudo rm -rf $HOME/macports_cache/software
-        #sudo port clean --work --logs --archive installed
         sudo mv /opt/local/var/macports/distfiles $HOME/macports_cache/distfiles
         sudo mv /opt/local/var/macports/software $HOME/macports_cache/software
         sudo mv /opt/local/var/macports/sources/rsync.macports.org/release/tarballs/ports $HOME/macports_cache/ports
