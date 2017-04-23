@@ -9,7 +9,7 @@ function port_install {
 function install_dependencies {
     if [ $DEPENDENCIES = macports ]; then
         travis_fold start dependencies_macports
-        travis_time_start
+        travis_time_start dependencies_macports
         port_install py$PYTHON_VERSION-crypto
         port_install py$PYTHON_VERSION-boto
         port_install py$PYTHON_VERSION-boto3
@@ -40,8 +40,10 @@ function install_dependencies {
         port_install py$PYTHON_VERSION-gevent
         port_install gstreamer1
         port_install py$PYTHON_VERSION-gobject3
+        travis_time_start rev-upgrade
         sudo port rev-upgrade | cat
-        travis_time_finish
+        travis_time_finish rev-upgrade
+        travis_time_finish dependencies_macports
         travis_fold end dependencies_macports
         toggle_py_sys_site_packages
     elif [ $DEPENDENCIES = homebrew ]; then
