@@ -125,8 +125,10 @@ urls    http://localhost:6227/" >> ~/archive_sites.conf
 function register_sources {
     travis_fold start sources
     if [ -d "$HOME/macports_cache/ports" ]; then
+        echo "Registering source dir"
         sudo mkdir -p /opt/local/var/macports/sources/rsync.macport.org/release/tarballs/ports
         sudo rsync -r --remove-source-files $HOME/macports_cache/ports /opt/local/var/macports/sources/rsync.macport.org/release/tarballs/
+        if [ -d /opt/local/var/macports/sources/rsync.macport.org/release/tarballs/ports/_resources ]; then echo "Success"; fi
     fi
     travis_fold end sources
 }
