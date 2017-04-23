@@ -142,7 +142,7 @@ matrix:
             directories:
               - $HOME/Library/Caches/pip
               - $HOME/Library/Caches/Homebrew
-    allow_failurs:
+    allow_failures:
         - os: osx
           env:
             - VERSION=2.7
