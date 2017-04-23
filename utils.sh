@@ -122,24 +122,13 @@ urls    http://localhost:6227/" >> ~/archive_sites.conf
     fi
 }
 
-function register_sources {
-    if [ -d "$HOME/macports_cache/ports" ]; then
-        travis_fold start sources
-        echo "Registering source dir"
-        sudo mkdir -p /opt/local/var/macports/sources/rsync.macport.org/release/tarballs/ports
-        sudo rsync -r --remove-source-files $HOME/macports_cache/ports /opt/local/var/macports/sources/rsync.macport.org/release/tarballs/
-        if [ -d /opt/local/var/macports/sources/rsync.macport.org/release/tarballs/ports/_resources ]; then echo "Success"; fi
-        travis_fold end sources
-    fi
-}
-
 function prep_cache {
     df -h
     if [ $SOURCE = macports ]; then
-        if [ ! -a "$HOME/macports_cache/local-privkey.pem" ]; then
-            openssl genrsa -out $HOME/macports_cache/local-privkey.pem 2048
-        fi
         if [ ! -a "$HOME/macports_cache/local-pubkey.pem" ]; then
+            if [ ! -a "$HOME/macports_cache/local-privkey.pem" ]; then
+                openssl genrsa -out $HOME/macports_cache/local-privkey.pem 2048
+            fi
             openssl rsa -in $HOME/macports_cache/local-privkey.pem -pubout -out $HOME/macports_cache/local-pubkey.pem
         fi
         sign_archives
@@ -147,8 +136,7 @@ function prep_cache {
         sudo rm -rf $HOME/macports_cache/software
         sudo mv /opt/local/var/macports/distfiles $HOME/macports_cache/distfiles
         sudo mv /opt/local/var/macports/software $HOME/macports_cache/software
-        sudo mv /opt/local/var/macports/sources/rsync.macports.org/release/tarballs/ports $HOME/macports_cache/ports
-        ls $HOME/macports_cache/ports
+        if [ -d "$HOME/macports_cache/ports" ]; then rm -rf $HOME/macports_cache/ports; fi
     fi
     if [ $SOURCE = homebrew ]; then
         brew cleanup -s
