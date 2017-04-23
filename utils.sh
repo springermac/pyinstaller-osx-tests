@@ -114,23 +114,23 @@ urls    http://localhost:6227/" >> ~/archive_sites.conf
         sudo cp ~/archive_sites.conf /opt/local/etc/macports/archive_sites.conf
         sudo sed -i -e "/archive_sites/d" /opt/local/var/macports/sources/rsync.macports.org/release/tarballs/ports/devel/gmp/Portfile
     fi
-    travis_fold start distfiles
     if [ -d "$HOME/macports_cache/distfiles" ]; then
+        travis_fold start distfiles
         sudo mkdir -p /opt/local/var/macports/distfiles
         sudo rsync -r --remove-source-files $HOME/macports_cache/distfiles /opt/local/var/macports/
+        travis_fold end distfiles
     fi
-    travis_fold end distfiles
 }
 
 function register_sources {
-    travis_fold start sources
     if [ -d "$HOME/macports_cache/ports" ]; then
+        travis_fold start sources
         echo "Registering source dir"
         sudo mkdir -p /opt/local/var/macports/sources/rsync.macport.org/release/tarballs/ports
         sudo rsync -r --remove-source-files $HOME/macports_cache/ports /opt/local/var/macports/sources/rsync.macport.org/release/tarballs/
         if [ -d /opt/local/var/macports/sources/rsync.macport.org/release/tarballs/ports/_resources ]; then echo "Success"; fi
+        travis_fold end sources
     fi
-    travis_fold end sources
 }
 
 function prep_cache {
