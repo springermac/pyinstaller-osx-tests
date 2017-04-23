@@ -3,7 +3,7 @@
 
 function port_install {
     PORT=$1
-    (sudo port -bN install $PORT || travis_wait sudo port -pN install $PORT) | cat
+    (sudo port -bN install --no-rev-upgrade $PORT || travis_wait sudo port -pN install --no-rev-upgrade $PORT) | cat
 }
 
 function install_dependencies {
@@ -40,6 +40,7 @@ function install_dependencies {
         port_install py$PYTHON_VERSION-gevent
         port_install gstreamer1
         port_install py$PYTHON_VERSION-gobject3
+        sudo port rev-upgrade
         travis_time_finish
         travis_fold end dependencies_macports
         toggle_py_sys_site_packages
