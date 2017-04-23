@@ -124,7 +124,7 @@ urls    http://localhost:6227/" >> ~/archive_sites.conf
 
 function register_sources {
     travis_fold start sources
-    if [ -d "$HOME/macports_cache/sources" ]; then
+    if [ -d "$HOME/macports_cache/ports" ]; then
         sudo mkdir -p /opt/local/var/macports/sources/rsync.macport.org/release/tarballs/ports
         sudo rsync -r --remove-source-files $HOME/macports_cache/ports /opt/local/var/macports/sources/rsync.macport.org/release/tarballs/
     fi
@@ -146,6 +146,7 @@ function prep_cache {
         sudo mv /opt/local/var/macports/distfiles $HOME/macports_cache/distfiles
         sudo mv /opt/local/var/macports/software $HOME/macports_cache/software
         sudo mv /opt/local/var/macports/sources/rsync.macports.org/release/tarballs/ports $HOME/macports_cache/ports
+        ls $HOME/macports_cache
     fi
     if [ $SOURCE = homebrew ]; then
         brew cleanup -s
