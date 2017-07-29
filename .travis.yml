@@ -205,7 +205,7 @@ cache:
 
 env:
   global:
-    - PYI_COMMIT=develop
+    - PYI_COMMIT=my-develop
     - REPO_DIR=pyinstaller
 
 
