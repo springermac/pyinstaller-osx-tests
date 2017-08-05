@@ -1,202 +1,405 @@
 language: generic
 
-matrix:
-    include:
-        - os: osx
-          env:
-            - VERSION=2.7.13
-              SOURCE=macpython
-              DEPENDENCIES=pip
-          cache:
-            directories:
-              - $HOME/Library/Caches/pip
-        - os: osx
-          env:
-            - VERSION=3.4.4
-              SOURCE=macpython
-              DEPENDENCIES=pip
-          cache:
-            directories:
-              - $HOME/Library/Caches/pip
-        - os: osx
-          env:
-            - VERSION=3.5.3
-              SOURCE=macpython
-              DEPENDENCIES=pip
-          cache:
-            directories:
-              - $HOME/Library/Caches/pip
-        - os: osx
-          env:
-            - VERSION=3.6.1
-              SOURCE=macpython
-              DEPENDENCIES=pip
-          cache:
-            directories:
-              - $HOME/Library/Caches/pip
-        - os: osx
-          env:
-            - VERSION=2.7
-              SOURCE=macports
-              DEPENDENCIES=pip
-          cache:
-            directories:
-              - $HOME/Library/Caches/pip
-              - $HOME/macports_cache
-        - os: osx
-          env:
-            - VERSION=3.4
-              SOURCE=macports
-              DEPENDENCIES=pip
-          cache:
-            directories:
-              - $HOME/Library/Caches/pip
-              - $HOME/macports_cache
-        - os: osx
-          env:
-            - VERSION=3.5
-              SOURCE=macports
-              DEPENDENCIES=pip
-          cache:
-            directories:
-              - $HOME/Library/Caches/pip
-              - $HOME/macports_cache
-        - os: osx
-          env:
-            - VERSION=3.6
-              SOURCE=macports
-              DEPENDENCIES=pip
-          cache:
-            directories:
-              - $HOME/Library/Caches/pip
-              - $HOME/macports_cache
-        - os: osx
-          env:
-            - VERSION=2
-              SOURCE=homebrew
-              DEPENDENCIES=pip
-          cache:
-            directories:
-              - $HOME/Library/Caches/pip
-              - $HOME/Library/Caches/Homebrew
-        - os: osx
-          env:
-            - VERSION=3
-              SOURCE=homebrew
-              DEPENDENCIES=pip
-          cache:
-            directories:
-              - $HOME/Library/Caches/pip
-              - $HOME/Library/Caches/Homebrew
-        - os: osx
-          env:
-            - VERSION=2.7
-              SOURCE=macports
-              DEPENDENCIES=macports
-          cache:
-            directories:
-              - $HOME/Library/Caches/pip
-              - $HOME/macports_cache
-        - os: osx
-          env:
-            - VERSION=3.4
-              SOURCE=macports
-              DEPENDENCIES=macports
-          cache:
-            directories:
-              - $HOME/Library/Caches/pip
-              - $HOME/macports_cache
-        - os: osx
-          env:
-            - VERSION=3.5
-              SOURCE=macports
-              DEPENDENCIES=macports
-          cache:
-            directories:
-              - $HOME/Library/Caches/pip
-              - $HOME/macports_cache
-        - os: osx
-          env:
-            - VERSION=3.6
-              SOURCE=macports
-              DEPENDENCIES=macports
-          cache:
-            directories:
-              - $HOME/Library/Caches/pip
-              - $HOME/macports_cache
-        - os: osx
-          env:
-            - VERSION=2
-              SOURCE=homebrew
-              DEPENDENCIES=homebrew
-          cache:
-            directories:
-              - $HOME/Library/Caches/pip
-              - $HOME/Library/Caches/Homebrew
-        - os: osx
-          env:
-            - VERSION=3
-              SOURCE=homebrew
-              DEPENDENCIES=homebrew
-          cache:
-            directories:
-              - $HOME/Library/Caches/pip
-              - $HOME/Library/Caches/Homebrew
-    allow_failures:
-        - os: osx
-          env:
-            - VERSION=2.7
-              SOURCE=macports
-              DEPENDENCIES=macports
-          cache:
-            directories:
-              - $HOME/Library/Caches/pip
-              - $HOME/macports_cache
-        - os: osx
-          env:
-            - VERSION=3.4
-              SOURCE=macports
-              DEPENDENCIES=macports
-          cache:
-            directories:
-              - $HOME/Library/Caches/pip
-              - $HOME/macports_cache
-        - os: osx
-          env:
-            - VERSION=3.5
-              SOURCE=macports
-              DEPENDENCIES=macports
-          cache:
-            directories:
-              - $HOME/Library/Caches/pip
-              - $HOME/macports_cache
-        - os: osx
-          env:
-            - VERSION=3.6
-              SOURCE=macports
-              DEPENDENCIES=macports
-          cache:
-            directories:
-              - $HOME/Library/Caches/pip
-              - $HOME/macports_cache
-        - os: osx
-          env:
-            - VERSION=2
-              SOURCE=homebrew
-              DEPENDENCIES=homebrew
-          cache:
-            directories:
-              - $HOME/Library/Caches/pip
-              - $HOME/Library/Caches/Homebrew
-        - os: osx
-          env:
-            - VERSION=3
-              SOURCE=homebrew
-              DEPENDENCIES=homebrew
-          cache:
-            directories:
-              - $HOME/Library/Caches/pip
-              - $HOME/Library/Caches/Homebrew
+jobs:
+  include:
+    - stage: Cache
+      os: osx
+      env:
+        - VERSION=2.7.13
+          SOURCE=macpython
+          DEPENDENCIES=pip
+      script: true
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+    - stage: Test
+      os: osx
+      env:
+        - VERSION=2.7.13
+          SOURCE=macpython
+          DEPENDENCIES=pip
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+
+    - stage: Cache
+      os: osx
+      env:
+        - VERSION=3.4.4
+          SOURCE=macpython
+          DEPENDENCIES=pip
+      script: true
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+    - stage: Test
+      os: osx
+      env:
+        - VERSION=3.4.4
+          SOURCE=macpython
+          DEPENDENCIES=pip
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+
+    - stage: Cache
+      os: osx
+      env:
+        - VERSION=3.5.3
+          SOURCE=macpython
+          DEPENDENCIES=pip
+      script: true
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+    - stage: Test
+      os: osx
+      env:
+        - VERSION=3.5.3
+          SOURCE=macpython
+          DEPENDENCIES=pip
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+
+    - stage: Cache
+      os: osx
+      env:
+        - VERSION=3.6.1
+          SOURCE=macpython
+          DEPENDENCIES=pip
+      script: true
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+    - stage: Test
+      os: osx
+      env:
+        - VERSION=3.6.1
+          SOURCE=macpython
+          DEPENDENCIES=pip
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+
+    - stage: Cache
+      os: osx
+      env:
+        - VERSION=2.7
+          SOURCE=macports
+          DEPENDENCIES=pip
+      script: true
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+          - $HOME/macports_cache
+    - stage: Test
+      os: osx
+      env:
+        - VERSION=2.7
+          SOURCE=macports
+          DEPENDENCIES=pip
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+          - $HOME/macports_cache
+
+    - stage: Cache
+      os: osx
+      env:
+        - VERSION=3.4
+          SOURCE=macports
+          DEPENDENCIES=pip
+      script: true
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+          - $HOME/macports_cache
+    - stage: Test
+      os: osx
+      env:
+        - VERSION=3.4
+          SOURCE=macports
+          DEPENDENCIES=pip
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+          - $HOME/macports_cache
+
+    - stage: Cache
+      os: osx
+      env:
+        - VERSION=3.5
+          SOURCE=macports
+          DEPENDENCIES=pip
+      script: true
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+          - $HOME/macports_cache
+    - stage: Test
+      os: osx
+      env:
+        - VERSION=3.5
+          SOURCE=macports
+          DEPENDENCIES=pip
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+          - $HOME/macports_cache
+
+    - stage: Cache
+      os: osx
+      env:
+        - VERSION=3.6
+          SOURCE=macports
+          DEPENDENCIES=pip
+      script: true
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+          - $HOME/macports_cache
+    - stage: Test
+      os: osx
+      env:
+        - VERSION=3.6
+          SOURCE=macports
+          DEPENDENCIES=pip
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+          - $HOME/macports_cache
+
+    - stage: Cache
+      os: osx
+      env:
+        - VERSION=2
+          SOURCE=homebrew
+          DEPENDENCIES=pip
+      script: true
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+          - $HOME/Library/Caches/Homebrew
+    - stage: Test
+      os: osx
+      env:
+        - VERSION=2
+          SOURCE=homebrew
+          DEPENDENCIES=pip
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+          - $HOME/Library/Caches/Homebrew
+
+    - stage: Cache
+      os: osx
+      env:
+        - VERSION=3
+          SOURCE=homebrew
+          DEPENDENCIES=pip
+      script: true
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+          - $HOME/Library/Caches/Homebrew
+    - stage: Test
+      os: osx
+      env:
+        - VERSION=3
+          SOURCE=homebrew
+          DEPENDENCIES=pip
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+          - $HOME/Library/Caches/Homebrew
+
+    - stage: Cache
+      os: osx
+      env:
+        - VERSION=2.7
+          SOURCE=macports
+          DEPENDENCIES=macports
+      script: true
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+          - $HOME/macports_cache
+    - stage: Test
+      os: osx
+      env:
+        - VERSION=2.7
+          SOURCE=macports
+          DEPENDENCIES=macports
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+          - $HOME/macports_cache
+
+    - stage: Cache
+      os: osx
+      env:
+        - VERSION=3.4
+          SOURCE=macports
+          DEPENDENCIES=macports
+      script: true
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+          - $HOME/macports_cache
+    - stage: Test
+      os: osx
+      env:
+        - VERSION=3.4
+          SOURCE=macports
+          DEPENDENCIES=macports
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+          - $HOME/macports_cache
+
+    - stage: Cache
+      os: osx
+      env:
+        - VERSION=3.5
+          SOURCE=macports
+          DEPENDENCIES=macports
+      script: true
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+          - $HOME/macports_cache
+    - stage: Test
+      os: osx
+      env:
+        - VERSION=3.5
+          SOURCE=macports
+          DEPENDENCIES=macports
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+          - $HOME/macports_cache
+
+    - stage: Cache
+      os: osx
+      env:
+        - VERSION=3.6
+          SOURCE=macports
+          DEPENDENCIES=macports
+      script: true
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+          - $HOME/macports_cache
+    - stage: Test
+      os: osx
+      env:
+        - VERSION=3.6
+          SOURCE=macports
+          DEPENDENCIES=macports
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+          - $HOME/macports_cache
+
+    - stage: Cache
+      os: osx
+      env:
+        - VERSION=2
+          SOURCE=homebrew
+          DEPENDENCIES=homebrew
+      script: true
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+          - $HOME/Library/Caches/Homebrew
+    - stage: Test
+      os: osx
+      env:
+        - VERSION=2
+          SOURCE=homebrew
+          DEPENDENCIES=homebrew
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+          - $HOME/Library/Caches/Homebrew
+
+    - stage: Cache
+      os: osx
+      env:
+        - VERSION=3
+          SOURCE=homebrew
+          DEPENDENCIES=homebrew
+      script: true
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+          - $HOME/Library/Caches/Homebrew
+    - stage: Test
+      os: osx
+      env:
+        - VERSION=3
+          SOURCE=homebrew
+          DEPENDENCIES=homebrew
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+          - $HOME/Library/Caches/Homebrew
+  allow_failures:
+    - os: osx
+      env:
+        - VERSION=2.7
+          SOURCE=macports
+          DEPENDENCIES=macports
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+          - $HOME/macports_cache
+    - os: osx
+      env:
+        - VERSION=3.4
+          SOURCE=macports
+          DEPENDENCIES=macports
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+          - $HOME/macports_cache
+    - os: osx
+      env:
+        - VERSION=3.5
+          SOURCE=macports
+          DEPENDENCIES=macports
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+          - $HOME/macports_cache
+    - os: osx
+      env:
+        - VERSION=3.6
+          SOURCE=macports
+          DEPENDENCIES=macports
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+          - $HOME/macports_cache
+    - os: osx
+      env:
+        - VERSION=2
+          SOURCE=homebrew
+          DEPENDENCIES=homebrew
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+          - $HOME/Library/Caches/Homebrew
+    - os: osx
+      env:
+        - VERSION=3
+          SOURCE=homebrew
+          DEPENDENCIES=homebrew
+      cache:
+        directories:
+          - $HOME/Library/Caches/pip
+          - $HOME/Library/Caches/Homebrew
 
 # Cache pip packages. Explicitly name the pip-cache directory since we
 # use a custom `install` step which annuls `cache: pip`.
