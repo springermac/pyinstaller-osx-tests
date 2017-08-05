@@ -31,10 +31,10 @@ function install_dependencies {
         port_install py$PYTHON_VERSION-pandas
         port_install py$PYTHON_VERSION-matplotlib
         port_install qt4-mac
-        port_install py$PYTHON_VERSION-pyqt4
+#        port_install py$PYTHON_VERSION-pyqt4
         port_install qt5
-        port_install py$PYTHON_VERSION-pyqt5
-        port_install py$PYTHON_VERSION-pyside
+#        port_install py$PYTHON_VERSION-pyqt5
+#        port_install py$PYTHON_VERSION-pyside
         port_install py$PYTHON_VERSION-tkinter
         port_install py$PYTHON_VERSION-enchant
         port_install py$PYTHON_VERSION-gevent
@@ -50,7 +50,7 @@ function install_dependencies {
         brew tap homebrew/python
         brew tap homebrew/boneyard
         if [ $PYTHON_VERSION = 2 ]; then
-            /usr/local/bin/pip uninstall -y numpy
+#            /usr/local/bin/pip uninstall -y numpy
             brew install python-markdown
             brew install numpy
             brew install Pillow
@@ -59,7 +59,7 @@ function install_dependencies {
             brew install --build-bottle enchant --with-python
             brew install qt
             brew install qt5
-            travis_wait 30 brew install --build-bottle pyqt5 --with-python --without-python3
+#            travis_wait 30 brew install --build-bottle pyqt5 --with-python --without-python3
 #            brew install pyside
             brew install gst-python
         elif [ $PYTHON_VERSION = 3 ]; then
