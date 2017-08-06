@@ -50,7 +50,7 @@ function install_dependencies {
         brew tap homebrew/python
         brew tap homebrew/boneyard
         if [ $PYTHON_VERSION = 2 ]; then
-            brew uninstall numpy
+            /usr/local/bin/pip uninstall -y numpy
             brew install python-markdown
             brew install numpy
             brew install Pillow
@@ -112,6 +112,7 @@ mimetype.assign = (
         echo "name  local
 urls    http://localhost:6227/" >> ~/archive_sites.conf
         sudo cp ~/archive_sites.conf /opt/local/etc/macports/archive_sites.conf
+        sudo find -name gmp /opt/local/var/macports/
         sudo sed -i -e "/archive_sites/d" /opt/local/var/macports/sources/rsync.macports.org/release/tarballs/ports/devel/gmp/Portfile
     fi
     if [ -d "$HOME/macports_cache/distfiles" ]; then
