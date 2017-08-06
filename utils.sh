@@ -112,7 +112,7 @@ mimetype.assign = (
         echo "name  local
 urls    http://localhost:6227/" >> ~/archive_sites.conf
         sudo cp ~/archive_sites.conf /opt/local/etc/macports/archive_sites.conf
-        sudo find -name gmp /opt/local/var/macports/
+        sudo find /opt/local/var/macports/ -name gmp
         sudo sed -i -e "/archive_sites/d" /opt/local/var/macports/sources/rsync.macports.org/release/tarballs/ports/devel/gmp/Portfile
     fi
     if [ -d "$HOME/macports_cache/distfiles" ]; then
