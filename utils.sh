@@ -50,7 +50,6 @@ function install_dependencies {
         brew tap homebrew/python
         brew tap homebrew/boneyard
         if [ $PYTHON_VERSION = 2 ]; then
-            pip uninstall -y numpy
             brew install python-markdown
             brew install numpy
             brew install Pillow
