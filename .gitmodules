@@ -1,6 +1,7 @@
 [submodule "pyinstaller"]
 	path = pyinstaller
 	url = git://github.com/springermac/pyinstaller.git
+	branch = green-tests
 [submodule "terryfy"]
 	path = terryfy
 	url = git://github.com/MacPython/terryfy.git

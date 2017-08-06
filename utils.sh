@@ -50,7 +50,7 @@ function install_dependencies {
         brew tap homebrew/python
         brew tap homebrew/boneyard
         if [ $PYTHON_VERSION = 2 ]; then
-            ${PIP_CMD} uninstall -y numpy
+            brew uninstall numpy
             brew install python-markdown
             brew install numpy
             brew install Pillow
@@ -68,7 +68,7 @@ function install_dependencies {
             brew install --build-bottle matplotlib --with-python3 --without-python
             brew install qt
             brew install qt5
-            travis-pls brew install --build-bottle pyqt5
+#            travis-pls brew install --build-bottle pyqt5
 #            travis_wait brew install --build-bottle pyside --with-python3 --without-python
             brew install --build-bottle pygobject3 --with-python3 --without-python
             brew install --build-bottle gst-python --with-python3 --without-python
