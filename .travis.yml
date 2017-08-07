@@ -408,7 +408,7 @@ cache:
 
 env:
   global:
-    - PYI_COMMIT=my-develop
+    - PYI_COMMIT=green-tests
     - REPO_DIR=pyinstaller
 
 
