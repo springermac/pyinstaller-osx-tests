@@ -604,11 +604,9 @@ env:
 # Install dependencies.
 install:
   # Build Python interpreter
-  - ls
+  - sudo find / -name pip
   - source terryfy/travis_tools.sh
-  - cd terryfy
-  - git submodule update --remote multibuild/
-  - cd ..
+  - cd terryfy; git submodule update --remote multibuild/; cd ..
   - source terryfy/multibuild/osx_utils.sh
   - source $TRAVIS_BUILD_DIR/utils.sh
   - pip uninstall -y numpy
