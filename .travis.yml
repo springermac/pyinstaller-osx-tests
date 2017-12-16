@@ -604,6 +604,7 @@ env:
 # Install dependencies.
 install:
   # Build Python interpreter
+  - ls
   - source terryfy/travis_tools.sh
   - cd terryfy
   - git submodule update --remote multibuild/
