@@ -604,7 +604,7 @@ env:
 # Install dependencies.
 install:
   # Build Python interpreter
-  - sudo find / -name pip
+#  - sudo find / -name pip
   - source terryfy/travis_tools.sh
   - cd terryfy; git submodule update --remote multibuild/; cd ..
   - source terryfy/multibuild/osx_utils.sh
