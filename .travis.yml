@@ -610,7 +610,7 @@ install:
   - source $TRAVIS_BUILD_DIR/utils.sh
 #  - /usr/local/lib/python2.7/bin/pip uninstall -y numpy
   - get_python_environment $SOURCE $VERSION venv
-  - sudo find /usr/local -name pip; true
+  - sudo find /usr/local -name pip; sudo find /usr/local -name numpy; true
   - register_cache
   - if [ $SOURCE = macports ]; then sudo port -pb install curl | cat; fi
   - ${PIP_CMD} install travispls
