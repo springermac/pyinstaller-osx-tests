@@ -46,7 +46,7 @@ function install_dependencies {
     elif [ $DEPENDENCIES = homebrew ]; then
         travis_fold start dependencies_homebrew
         travis_time_start
-        pip uninstall -y numpy || true
+        /usr/local/bin/pip uninstall -y numpy || true
         brew tap homebrew/boneyard
         if [ $PYTHON_VERSION = 2 ]; then
             brew install python-markdown --without-python
@@ -61,7 +61,7 @@ function install_dependencies {
 #            brew install pyside
             brew install gst-python --with-python@2 --without-python
         elif [ $PYTHON_VERSION = 3 ]; then
-            brew install --build-bottle numpy --without-python@3
+            brew install --build-bottle numpy --without-python@2
             brew install --build-bottle Pillow --without-python
 #            brew install --build-bottle matplotlib --with-python3 --without-python
             brew install qt
