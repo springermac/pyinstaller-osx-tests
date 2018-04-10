@@ -49,27 +49,27 @@ function install_dependencies {
         pip uninstall -y numpy || true
         brew tap homebrew/boneyard
         if [ $PYTHON_VERSION = 2 ]; then
-            brew install python-markdown
-            brew install numpy
+            brew install python-markdown --without-python
+            brew install numpy --without-python
             brew install Pillow
-            brew install matplotlib
+#            brew install matplotlib
             brew install wxpython
             brew install --build-bottle enchant --with-python
             brew install qt
             brew install qt5
-#            travis_wait 30 brew install --build-bottle pyqt5 --with-python --without-python3
+            travis_wait 30 brew install --build-bottle pyqt5 --without-python
 #            brew install pyside
-            brew install gst-python
+            brew install gst-python --with-python@2 --without-python
         elif [ $PYTHON_VERSION = 3 ]; then
-            brew install --build-bottle numpy --with-python3 --without-python
-            brew install --build-bottle Pillow --with-python3 --without-python
-            brew install --build-bottle matplotlib --with-python3 --without-python
+            brew install --build-bottle numpy --without-python@3
+            brew install --build-bottle Pillow --without-python
+#            brew install --build-bottle matplotlib --with-python3 --without-python
             brew install qt
             brew install qt5
-#            travis-pls brew install --build-bottle pyqt5
+            travis-pls brew install --build-bottle pyqt5 --without-python@2
 #            travis_wait brew install --build-bottle pyside --with-python3 --without-python
-            brew install --build-bottle pygobject3 --with-python3 --without-python
-            brew install --build-bottle gst-python --with-python3 --without-python
+            brew install --build-bottle pygobject3
+            brew install --build-bottle gst-python
         fi
         travis_time_finish
         travis_fold end dependencies_homebrew
