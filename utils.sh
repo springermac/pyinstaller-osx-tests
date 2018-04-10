@@ -47,7 +47,6 @@ function install_dependencies {
         travis_fold start dependencies_homebrew
         travis_time_start
         pip uninstall -y numpy || true
-        brew tap homebrew/python
         brew tap homebrew/boneyard
         if [ $PYTHON_VERSION = 2 ]; then
             brew install python-markdown
