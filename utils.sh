@@ -46,7 +46,7 @@ function install_dependencies {
     elif [ $DEPENDENCIES = homebrew ]; then
         travis_fold start dependencies_homebrew
         travis_time_start
-        pip uninstall -y numpy
+        pip uninstall -y numpy || true
         brew tap homebrew/science
         brew tap homebrew/python
         brew tap homebrew/boneyard
