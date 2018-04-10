@@ -49,8 +49,8 @@ function install_dependencies {
         /usr/local/bin/pip uninstall -y numpy || true
         brew tap homebrew/boneyard
         if [ $PYTHON_VERSION = 2 ]; then
-            brew install python-markdown --without-python
-            brew install numpy --without-python
+            brew install --build-bottle python-markdown --without-python
+            brew install --build-bottle numpy --without-python
             brew install Pillow
 #            brew install matplotlib
             brew install wxpython
