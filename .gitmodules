@@ -3,4 +3,4 @@
 	url = git://github.com/springermac/pyinstaller.git
 [submodule "terryfy"]
 	path = terryfy
-	url = git://github.com/MacPython/terryfy.git
+	url = git://github.com/springermac/terryfy.git
