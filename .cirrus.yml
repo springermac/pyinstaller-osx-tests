@@ -69,7 +69,7 @@ test_task:
         DEPENDENCIES: macports
       cache:
         folder: $CIRRUS_WORKING_DIR/macports_cache
-        populate_script: prep_cache
+        populate_script: register_cache
     - name: macports_macports_3.4
       env:
         VERSION: 3.4
@@ -77,7 +77,7 @@ test_task:
         DEPENDENCIES: macports
       cache:
         folder: $CIRRUS_WORKING_DIR/macports_cache
-        populate_script: prep_cache
+        populate_script: register_cache
     - name: macports_macports_3.5
       env:
         VERSION: 3.5
@@ -85,7 +85,7 @@ test_task:
         DEPENDENCIES: macports
       cache:
         folder: $CIRRUS_WORKING_DIR/macports_cache
-        populate_script: prep_cache
+        populate_script: register_cache
     - name: macports_macports_3.6
       env:
         VERSION: 3.6
@@ -93,7 +93,7 @@ test_task:
         DEPENDENCIES: macports
       cache:
         folder: $CIRRUS_WORKING_DIR/macports_cache
-        populate_script: prep_cache
+        populate_script: register_cache
     - name: macports_macports_3.7
       env:
         VERSION: 3.7
@@ -101,7 +101,7 @@ test_task:
         DEPENDENCIES: macports
       cache:
         folder: $CIRRUS_WORKING_DIR/macports_cache
-        populate_script: prep_cache
+        populate_script: register_cache
   install_script:
     - git submodule update --init --recursive
     - source terryfy/travis_tools.sh
@@ -109,7 +109,6 @@ test_task:
     - source terryfy/multibuild/osx_utils.sh
     - source $CIRRUS_WORKING_DIR/utils_cirrus.sh
     - get_python_environment $SOURCE $VERSION venv
-    - register_cache
     - if [ $SOURCE = macports ]; then sudo port -pb install curl | cat; fi
     - source terryfy/test_python_installs.sh
     - if [ $SOURCE = macports ]; then export PYTHON_VERSION=`get_py_mm_nodot`; else export PYTHON_VERSION=`get_py_digit`; fi
@@ -130,3 +129,5 @@ test_task:
     - source $CIRRUS_WORKING_DIR/venv/bin/activate
     - cd $CIRRUS_WORKING_DIR/$REPO_DIR
     - py.test -n auto tests/functional/test_libraries.py tests/functional/test_hooks
+  prep_cache_script:
+    - prep_cache
