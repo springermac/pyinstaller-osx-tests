@@ -98,7 +98,6 @@ test_task:
     - if [ $SOURCE = macports ]; then export PYTHON_VERSION=`get_py_mm_nodot`; else export PYTHON_VERSION=`get_py_digit`; fi
     - cd $CIRRUS_WORKING_DIR
     - checkout_commit $REPO_DIR $PYI_COMMIT | cat
-    - ls pyinstaller
     - cd $CIRRUS_WORKING_DIR/$REPO_DIR/bootloader
     - $PYTHON_EXE waf distclean all
     - cd $CIRRUS_WORKING_DIR/$REPO_DIR

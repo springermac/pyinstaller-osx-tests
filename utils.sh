@@ -57,7 +57,7 @@ function install_dependencies {
             travis_time_start
         fi
         /usr/local/bin/pip uninstall -y numpy || true
-        brew cask uninstall oclint
+        brew cask uninstall oclint || true
         brew tap homebrew/boneyard
         if [ $PYTHON_VERSION = 2 ]; then
             brew install --build-bottle python-markdown --without-python
