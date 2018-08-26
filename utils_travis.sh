@@ -52,8 +52,6 @@ function install_dependencies {
         if [ $PYTHON_VERSION = 2 ]; then
             brew install --build-bottle python-markdown --without-python
             brew install --build-bottle numpy --without-python
-#            brew install Pillow
-#            brew install matplotlib
             brew install wxpython
             brew install --build-bottle enchant --with-python@2
 #            brew install qt
@@ -64,8 +62,6 @@ function install_dependencies {
             brew install --build-bottle gst-python --with-python@2 --without-python
         elif [ $PYTHON_VERSION = 3 ]; then
             brew install --build-bottle numpy --without-python@2
-#            brew install --build-bottle Pillow --without-python
-#            brew install --build-bottle matplotlib --with-python3 --without-python
 #            brew install qt
             brew install qt5
             travis-pls brew install --build-bottle pyqt5 --without-python@2
