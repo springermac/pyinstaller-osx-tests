@@ -5,12 +5,12 @@ test_task:
   env:
     PYI_COMMIT: green-tests
     REPO_DIR: pyinstaller
-    matrix:
-      env:
+  matrix:
+    - env:
         VERSION: 2.7
         SOURCE: macpython
         DEPENDENCIES: pip
-      env:
+    - env:
         VERSION: 3.4
         SOURCE: macpython
         DEPENDENCIES: pip
