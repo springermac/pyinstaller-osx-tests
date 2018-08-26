@@ -122,7 +122,7 @@ test_task:
     - ${PIP_CMD} install -U pip
     - ${PIP_CMD} install -r $CIRRUS_WORKING_DIR/$REPO_DIR/tests/requirements-tools.txt | cat
     - install_dependencies
+  test_script:
     - source $CIRRUS_WORKING_DIR/venv/bin/activate
     - cd $CIRRUS_WORKING_DIR/$REPO_DIR
-  test_script:
     - py.test -n auto
