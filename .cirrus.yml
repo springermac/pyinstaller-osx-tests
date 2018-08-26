@@ -28,11 +28,11 @@ test_task:
         DEPENDENCIES: pip
     - env:
         VERSION: 2
-        SOURCE: brew
+        SOURCE: homebrew
         DEPENDENCIES: pip
     - env:
         VERSION: 3
-        SOURCE: brew
+        SOURCE: homebrew
         DEPENDENCIES: pip
     - env:
         VERSION: 2.7
@@ -56,12 +56,12 @@ test_task:
         DEPENDENCIES: pip
     - env:
         VERSION: 2
-        SOURCE: brew
-        DEPENDENCIES: brew
+        SOURCE: homebrew
+        DEPENDENCIES: homebrew
     - env:
         VERSION: 3
-        SOURCE: brew
-        DEPENDENCIES: brew
+        SOURCE: homebrew
+        DEPENDENCIES: homebrew
     - env:
         VERSION: 2.7
         SOURCE: macports

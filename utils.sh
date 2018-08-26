@@ -3,13 +3,19 @@
 
 function port_install {
     PORT=$1
-    (sudo port -bN install --no-rev-upgrade $PORT || travis_wait sudo port -pN install --no-rev-upgrade $PORT) | cat
+    if [ $TRAVIS = true ]; then
+        (sudo port -bN install --no-rev-upgrade $PORT || travis_wait sudo port -pN install --no-rev-upgrade $PORT) | cat
+    else
+        (sudo port -bN install --no-rev-upgrade $PORT || sudo port -pN install --no-rev-upgrade $PORT) | cat
+    fi
 }
 
 function install_dependencies {
     if [ $DEPENDENCIES = macports ]; then
-        travis_fold start dependencies_macports
-        travis_time_start
+        if [ $TRAVIS = true ]; then
+            travis_fold start dependencies_macports
+            travis_time_start
+        fi
         port_install py$PYTHON_VERSION-crypto
         port_install py$PYTHON_VERSION-boto
         port_install py$PYTHON_VERSION-boto3
@@ -40,12 +46,16 @@ function install_dependencies {
         port_install py$PYTHON_VERSION-gevent
         port_install gstreamer1
         port_install py$PYTHON_VERSION-gobject3
-        travis_time_finish
-        travis_fold end dependencies_macports
+        if [ $TRAVIS = true ]; then
+            travis_time_finish
+            travis_fold end dependencies_macports
+        fi
         toggle_py_sys_site_packages
     elif [ $DEPENDENCIES = homebrew ]; then
-        travis_fold start dependencies_homebrew
-        travis_time_start
+        if [ $TRAVIS = true ]; then
+            travis_fold start dependencies_homebrew
+            travis_time_start
+        fi
         /usr/local/bin/pip uninstall -y numpy || true
         brew cask uninstall oclint
         brew tap homebrew/boneyard
@@ -58,7 +68,11 @@ function install_dependencies {
             brew install --build-bottle enchant --with-python@2
 #            brew install qt
             brew install qt5
-            travis_wait 30 brew install --build-bottle pyqt5 --without-python
+            if [ $TRAVIS = true ]; then
+                travis_wait 30 brew install --build-bottle pyqt5 --without-python
+            else
+                brew install --build-bottle pyqt5 --without-python
+            fi
 #            brew install pyside
             brew install --build-bottle pygobject3 --with-python@2 --without-python
             brew install --build-bottle gst-python --with-python@2 --without-python
@@ -68,20 +82,30 @@ function install_dependencies {
 #            brew install --build-bottle matplotlib --with-python3 --without-python
 #            brew install qt
             brew install qt5
-            travis-pls brew install --build-bottle pyqt5 --without-python@2
+            if [ $TRAVIS = true ]; then
+                travis-pls brew install --build-bottle pyqt5 --without-python@2
+            else
+                brew install --build-bottle pyqt5 --without-python@2
+            fi
 #            travis_wait brew install --build-bottle pyside --with-python3 --without-python
             brew install --build-bottle pygobject3
             brew install --build-bottle gst-python
         fi
-        travis_time_finish
-        travis_fold end dependencies_homebrew
+        if [ $TRAVIS = true ]; then
+            travis_time_finish
+            travis_fold end dependencies_homebrew
+        fi
         toggle_py_sys_site_packages
     elif [ $DEPENDENCIES = pip ]; then
-        travis_fold start dependencies_pip
-        travis_time_start
+        if [ $TRAVIS = true ]; then
+            travis_fold start dependencies_pip
+            travis_time_start
+        fi
         ${PIP_CMD} install -r $TRAVIS_BUILD_DIR/$REPO_DIR/tests/requirements-libraries.txt | cat
-        travis_time_finish
-        travis_fold end dependencies_pip
+        if [ $TRAVIS = true ]; then
+            travis_time_finish
+            travis_fold end dependencies_pip
+        fi
     fi
 }
 
