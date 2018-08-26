@@ -21,7 +21,6 @@ test_task:
     folder: $CIRRUS_WORKING_DIR/macports_cache
     populate_script: prep_cache
   test_script:
-    # Build Python interpreter
     source terryfy/travis_tools.sh
     cd terryfy; git submodule update --remote multibuild/; cd ..
     source terryfy/multibuild/osx_utils.sh
@@ -32,23 +31,15 @@ test_task:
     ${PIP_CMD} install travispls
     source terryfy/test_python_installs.sh
     if [ $SOURCE = macports ]; then export PYTHON_VERSION=`get_py_mm_nodot`; else export PYTHON_VERSION=`get_py_digit`; fi
-    # Checkout latest PyInstaller.
     cd $CIRRUS_WORKING_DIR
     checkout_commit $REPO_DIR $PYI_COMMIT | cat
-    # Compile bootloader.
     cd $CIRRUS_WORKING_DIR/$REPO_DIR/bootloader
     $PYTHON_EXE waf distclean all
-    # Install PyInstaller.
     cd $CIRRUS_WORKING_DIR/$REPO_DIR
     $PIP_CMD install -e .
-    # Install dependencies for tests.
-    # Download-progress bars break Travis's log view. Disable them by piping output
-    # through another program (if output is not a tty, no progress bars)
     ${PIP_CMD} install -U pip
     ${PIP_CMD} install -r $CIRRUS_WORKING_DIR/$REPO_DIR/tests/requirements-tools.txt | cat
     install_dependencies
-    # Make sure virtualenv is activated.
     source $CIRRUS_WORKING_DIR/venv/bin/activate
     cd $CIRRUS_WORKING_DIR/$REPO_DIR
-    # Run tests and speed them up by sending them to multiple CPUs.
     py.test -n auto
