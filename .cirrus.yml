@@ -102,7 +102,7 @@ test_task:
       cache:
         folder: $CIRRUS_WORKING_DIR/macports_cache
         populate_script: prep_cache
-  script:
+  install_script:
     - git submodule update --init --recursive
     - source terryfy/travis_tools.sh
     - cd terryfy; git submodule update --remote multibuild/; cd ..
@@ -124,4 +124,5 @@ test_task:
     - install_dependencies
     - source $CIRRUS_WORKING_DIR/venv/bin/activate
     - cd $CIRRUS_WORKING_DIR/$REPO_DIR
+  test_script:
     - py.test -n auto
