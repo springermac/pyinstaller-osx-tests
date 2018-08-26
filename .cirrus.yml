@@ -17,10 +17,10 @@ test_task:
       DEPENDENCIES: pip
       DEPENDENCIES: brew
       DEPENDENCIES: macports
-  test_cache:
+  cache:
     folder: $CIRRUS_WORKING_DIR/macports_cache
     populate_script: prep_cache
-  test_script:
+  script:
     source terryfy/travis_tools.sh
     cd terryfy; git submodule update --remote multibuild/; cd ..
     source terryfy/multibuild/osx_utils.sh
