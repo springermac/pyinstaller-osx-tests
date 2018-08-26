@@ -82,9 +82,9 @@ test_task:
         VERSION: 3.7
         SOURCE: macports
         DEPENDENCIES: macports
-  cache:
-    folder: $CIRRUS_WORKING_DIR/macports_cache
-    populate_script: prep_cache
+#  cache:
+#    folder: $CIRRUS_WORKING_DIR/macports_cache
+#    populate_script: prep_cache
   script:
     - git submodule update --init --recursive
     - source terryfy/travis_tools.sh
