@@ -139,10 +139,14 @@ urls    http://localhost:6227/" >> ~/archive_sites.conf
         sudo sed -i -e "/archive_sites/d" /opt/local/var/macports/sources/rsync.macports.org/macports/release/tarballs/ports/devel/gmp/Portfile
     fi
     if [ -d "$HOME/macports_cache/distfiles" ]; then
-        travis_fold start distfiles
+        if [ $TRAVIS = true ]; then
+            travis_fold start distfiles
+        fi
         sudo mkdir -p /opt/local/var/macports/distfiles
         sudo rsync -r --remove-source-files $HOME/macports_cache/distfiles /opt/local/var/macports/
-        travis_fold end distfiles
+        if [ $TRAVIS = true ]; then
+            travis_fold end distfiles
+        fi
     fi
 }
 
