@@ -62,35 +62,40 @@ test_task:
         VERSION: 3
         SOURCE: homebrew
         DEPENDENCIES: homebrew
-    - env:
+    - name: macports_macports_2.7
+      env:
         VERSION: 2.7
         SOURCE: macports
         DEPENDENCIES: macports
       cache:
         folder: $CIRRUS_WORKING_DIR/macports_cache
         populate_script: prep_cache
-    - env:
+    - name: macports_macports_3.4
+      env:
         VERSION: 3.4
         SOURCE: macports
         DEPENDENCIES: macports
       cache:
         folder: $CIRRUS_WORKING_DIR/macports_cache
         populate_script: prep_cache
-    - env:
+    - name: macports_macports_3.5
+      env:
         VERSION: 3.5
         SOURCE: macports
         DEPENDENCIES: macports
       cache:
         folder: $CIRRUS_WORKING_DIR/macports_cache
         populate_script: prep_cache
-    - env:
+    - name: macports_macports_3.6
+      env:
         VERSION: 3.6
         SOURCE: macports
         DEPENDENCIES: macports
       cache:
         folder: $CIRRUS_WORKING_DIR/macports_cache
         populate_script: prep_cache
-    - env:
+    - name: macports_macports_3.7
+      env:
         VERSION: 3.7
         SOURCE: macports
         DEPENDENCIES: macports
