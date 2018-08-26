@@ -122,7 +122,11 @@ test_task:
     - ${PIP_CMD} install -U pip
     - ${PIP_CMD} install -r $CIRRUS_WORKING_DIR/$REPO_DIR/tests/requirements-tools.txt | cat
     - install_dependencies
-  test_script:
+  test_pyinstaller_script:
     - source $CIRRUS_WORKING_DIR/venv/bin/activate
     - cd $CIRRUS_WORKING_DIR/$REPO_DIR
-    - py.test -n auto
+    - py.test -n auto tests/unit tests/functional --ignore=tests/functional/test_libraries.py --ignore=tests/functional/test_hooks
+  test_libraries_script:
+    - source $CIRRUS_WORKING_DIR/venv/bin/activate
+    - cd $CIRRUS_WORKING_DIR/$REPO_DIR
+    - py.test -n auto tests/functional/test_libraries.py tests/functional/test_hooks
