@@ -29,10 +29,10 @@ function install_dependencies {
         port_install py$PYTHON_VERSION-pandas
         port_install py$PYTHON_VERSION-matplotlib
         port_install qt4-mac
-        port_install py$PYTHON_VERSION-pyqt4
+#        port_install py$PYTHON_VERSION-pyqt4
         port_install qt5
-        port_install py$PYTHON_VERSION-pyqt5
-        port_install py$PYTHON_VERSION-pyside
+#        port_install py$PYTHON_VERSION-pyqt5
+#        port_install py$PYTHON_VERSION-pyside
         port_install py$PYTHON_VERSION-tkinter
         port_install py$PYTHON_VERSION-enchant
         port_install py$PYTHON_VERSION-gevent
@@ -95,6 +95,8 @@ mimetype.assign = (
 urls    http://localhost:6227/" >> ~/archive_sites.conf
         sudo cp ~/archive_sites.conf /opt/local/etc/macports/archive_sites.conf
         sudo sed -i -e "/archive_sites/d" /opt/local/var/macports/sources/rsync.macports.org/macports/release/tarballs/ports/devel/gmp/Portfile
+    else
+        mkdir $CIRRUS_WORKING_DIR/macports_cache
     fi
     if [ -d "$CIRRUS_WORKING_DIR/macports_cache/distfiles" ]; then
         sudo mkdir -p /opt/local/var/macports/distfiles
