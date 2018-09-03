@@ -9,13 +9,13 @@ test_pip_macpython_task:
     DEPENDENCIES: pip
   matrix:
     - env:
-      VERSION: 2.7.15
+        VERSION: 2.7.15
     - env:
-      VERSION: 3.5.4
+        VERSION: 3.5.4
     - env:
-      VERSION: 3.6.6
+        VERSION: 3.6.6
     - env:
-      VERSION: 3.7.0
+        VERSION: 3.7.0
   install_script:
     - git submodule update --init --recursive
     - source terryfy/travis_tools.sh
@@ -44,9 +44,9 @@ test_pip_homebrew_task:
     DEPENDENCIES: pip
   matrix:
     - env:
-      VERSION: 2
+        VERSION: 2
     - env:
-      VERSION: 3
+        VERSION: 3
   install_script:
     - git submodule update --init --recursive
     - source terryfy/travis_tools.sh
@@ -75,13 +75,13 @@ test_pip_macports_task:
     DEPENDENCIES: pip
   matrix:
     - env:
-      VERSION: 2.7
+        VERSION: 2.7
     - env:
-      VERSION: 3.5
+        VERSION: 3.5
     - env:
-      VERSION: 3.6
+        VERSION: 3.6
     - env:
-      VERSION: 3.7
+        VERSION: 3.7
   install_script:
     - git submodule update --init --recursive
     - source terryfy/travis_tools.sh
