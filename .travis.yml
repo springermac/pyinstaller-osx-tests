@@ -564,18 +564,18 @@ jobs:
 #        directories:
 #          - $HOME/Library/Caches/pip
 #          - $HOME/macports_cache
-
-    - stage: Cache
-      os: osx
-      env:
-        - VERSION=2
-          SOURCE=homebrew
-          DEPENDENCIES=homebrew
-      script: true
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-          - $HOME/Library/Caches/Homebrew
+#
+#    - stage: Cache
+#      os: osx
+#      env:
+#        - VERSION=2
+#          SOURCE=homebrew
+#          DEPENDENCIES=homebrew
+#      script: true
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#          - $HOME/Library/Caches/Homebrew
 #    - stage: Test PyInstaller
 #      os: osx
 #      env:
@@ -598,18 +598,18 @@ jobs:
 #        directories:
 #          - $HOME/Library/Caches/pip
 #          - $HOME/Library/Caches/Homebrew
-
-    - stage: Cache
-      os: osx
-      env:
-        - VERSION=3
-          SOURCE=homebrew
-          DEPENDENCIES=homebrew
-      script: true
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-          - $HOME/Library/Caches/Homebrew
+#
+#    - stage: Cache
+#      os: osx
+#      env:
+#        - VERSION=3
+#          SOURCE=homebrew
+#          DEPENDENCIES=homebrew
+#      script: true
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#          - $HOME/Library/Caches/Homebrew
 #    - stage: Test PyInstaller
 #      os: osx
 #      env:
