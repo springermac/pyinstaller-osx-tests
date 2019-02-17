@@ -71,7 +71,7 @@ function install_dependencies {
     elif [ $DEPENDENCIES = pip ]; then
         travis_fold start dependencies_pip
         travis_time_start
-        ${PIP_CMD} install -r $TRAVIS_BUILD_DIR/$REPO_DIR/tests/requirements-libraries.txt | cat
+        ${PIP_CMD} install --progress-bar=off -r $TRAVIS_BUILD_DIR/$REPO_DIR/tests/requirements-libraries.txt
         travis_time_finish
         travis_fold end dependencies_pip
     fi

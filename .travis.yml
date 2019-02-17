@@ -719,7 +719,7 @@ install:
   - get_python_environment $SOURCE $VERSION venv
   - register_cache
   - if [ $SOURCE = macports ]; then sudo port -pb install curl | cat; fi
-  - ${PIP_CMD} install travispls
+  - ${PIP_CMD} install --progress-bar=off travispls
   - source terryfy/test_python_installs.sh
   - if [ $SOURCE = macports ]; then export PYTHON_VERSION=`get_py_mm_nodot`; else export PYTHON_VERSION=`get_py_digit`; fi
 
@@ -733,13 +733,13 @@ install:
 
   # Install PyInstaller.
   - cd $TRAVIS_BUILD_DIR/$REPO_DIR
-  - $PIP_CMD install -e .
+  - $PIP_CMD install --progress-bar=off -e .
 
   # Install dependencies for tests.
   # Download-progress bars break Travis's log view. Disable them by piping output
   # through another program (if output is not a tty, no progress bars)
-  - ${PIP_CMD} install -U pip
-  - ${PIP_CMD} install -r $TRAVIS_BUILD_DIR/$REPO_DIR/tests/requirements-tools.txt | cat
+  - ${PIP_CMD} install --progress-bar=off -U pip
+  - ${PIP_CMD} install --progress-bar=off -r $TRAVIS_BUILD_DIR/$REPO_DIR/tests/requirements-tools.txt
   - install_dependencies
   # Make sure virtualenv is activated.
   - source $TRAVIS_BUILD_DIR/venv/bin/activate
