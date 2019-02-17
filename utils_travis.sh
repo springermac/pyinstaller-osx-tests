@@ -2,8 +2,8 @@
 # Use with ``source utils.sh``
 
 function port_install {
-    PORT=$1
-    (sudo port -bN install --no-rev-upgrade $PORT || travis_wait sudo port -pN install --no-rev-upgrade $PORT) | cat
+    PORT=$@
+    (sudo port -bN install --no-rev-upgrade $PORT || travis_wait 30 sudo port -pN install --no-rev-upgrade $PORT) | cat
 }
 
 function install_dependencies {
