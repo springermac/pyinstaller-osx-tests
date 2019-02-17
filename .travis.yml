@@ -2,398 +2,398 @@ language: generic
 
 jobs:
   include:
-    - stage: Cache
-      os: osx
-      env:
-        - VERSION=2.7.15
-          SOURCE=macpython
-          DEPENDENCIES=pip
-      script: true
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-    - stage: Test PyInstaller
-      os: osx
-      env:
-        - VERSION=2.7.15
-          SOURCE=macpython
-          DEPENDENCIES=pip
-      script: py.test -n auto tests/unit tests/functional --ignore=tests/functional/test_libraries.py --ignore=tests/functional/test_hooks
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-    - stage: Test Libraries
-      os: osx
-      env:
-        - VERSION=2.7.15
-          SOURCE=macpython
-          DEPENDENCIES=pip
-      script: py.test -n auto tests/functional/test_libraries.py tests/functional/test_hooks
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-
-    - stage: Cache
-      os: osx
-      env:
-        - VERSION=3.4.4
-          SOURCE=macpython
-          DEPENDENCIES=pip
-      script: true
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-    - stage: Test PyInstaller
-      os: osx
-      env:
-        - VERSION=3.4.4
-          SOURCE=macpython
-          DEPENDENCIES=pip
-      script: py.test -n auto tests/unit tests/functional --ignore=tests/functional/test_libraries.py --ignore=tests/functional/test_hooks
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-    - stage: Test Libraries
-      os: osx
-      env:
-        - VERSION=3.4.4
-          SOURCE=macpython
-          DEPENDENCIES=pip
-      script: py.test -n auto tests/functional/test_libraries.py tests/functional/test_hooks
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-
-    - stage: Cache
-      os: osx
-      env:
-        - VERSION=3.5.4
-          SOURCE=macpython
-          DEPENDENCIES=pip
-      script: true
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-    - stage: Test PyInstaller
-      os: osx
-      env:
-        - VERSION=3.5.4
-          SOURCE=macpython
-          DEPENDENCIES=pip
-      script: py.test -n auto tests/unit tests/functional --ignore=tests/functional/test_libraries.py --ignore=tests/functional/test_hooks
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-    - stage: Test Libraries
-      os: osx
-      env:
-        - VERSION=3.5.4
-          SOURCE=macpython
-          DEPENDENCIES=pip
-      script: py.test -n auto tests/functional/test_libraries.py tests/functional/test_hooks
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-
-    - stage: Cache
-      os: osx
-      env:
-        - VERSION=3.6.6
-          SOURCE=macpython
-          DEPENDENCIES=pip
-      script: true
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-    - stage: Test PyInstaller
-      os: osx
-      env:
-        - VERSION=3.6.6
-          SOURCE=macpython
-          DEPENDENCIES=pip
-      script: py.test -n auto tests/unit tests/functional --ignore=tests/functional/test_libraries.py --ignore=tests/functional/test_hooks
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-    - stage: Test Libraries
-      os: osx
-      env:
-        - VERSION=3.6.6
-          SOURCE=macpython
-          DEPENDENCIES=pip
-      script: py.test -n auto tests/functional/test_libraries.py tests/functional/test_hooks
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-
-    - stage: Cache
-      os: osx
-      env:
-        - VERSION=3.7.0
-          SOURCE=macpython
-          DEPENDENCIES=pip
-      script: true
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-    - stage: Test PyInstaller
-      os: osx
-      env:
-        - VERSION=3.7.0
-          SOURCE=macpython
-          DEPENDENCIES=pip
-      script: py.test -n auto tests/unit tests/functional --ignore=tests/functional/test_libraries.py --ignore=tests/functional/test_hooks
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-    - stage: Test Libraries
-      os: osx
-      env:
-        - VERSION=3.7.0
-          SOURCE=macpython
-          DEPENDENCIES=pip
-      script: py.test -n auto tests/functional/test_libraries.py tests/functional/test_hooks
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-
-    - stage: Cache
-      os: osx
-      env:
-        - VERSION=2.7
-          SOURCE=macports
-          DEPENDENCIES=pip
-      script: true
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-          - $HOME/macports_cache
-    - stage: Test PyInstaller
-      os: osx
-      env:
-        - VERSION=2.7
-          SOURCE=macports
-          DEPENDENCIES=pip
-      script: py.test -n auto tests/unit tests/functional --ignore=tests/functional/test_libraries.py --ignore=tests/functional/test_hooks
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-          - $HOME/macports_cache
-    - stage: Test Libraries
-      os: osx
-      env:
-        - VERSION=2.7
-          SOURCE=macports
-          DEPENDENCIES=pip
-      script: py.test -n auto tests/functional/test_libraries.py tests/functional/test_hooks
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-          - $HOME/macports_cache
-
-    - stage: Cache
-      os: osx
-      env:
-        - VERSION=3.4
-          SOURCE=macports
-          DEPENDENCIES=pip
-      script: true
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-          - $HOME/macports_cache
-    - stage: Test PyInstaller
-      os: osx
-      env:
-        - VERSION=3.4
-          SOURCE=macports
-          DEPENDENCIES=pip
-      script: py.test -n auto tests/unit tests/functional --ignore=tests/functional/test_libraries.py --ignore=tests/functional/test_hooks
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-          - $HOME/macports_cache
-    - stage: Test Libraries
-      os: osx
-      env:
-        - VERSION=3.4
-          SOURCE=macports
-          DEPENDENCIES=pip
-      script: py.test -n auto tests/functional/test_libraries.py tests/functional/test_hooks
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-          - $HOME/macports_cache
-
-    - stage: Cache
-      os: osx
-      env:
-        - VERSION=3.5
-          SOURCE=macports
-          DEPENDENCIES=pip
-      script: true
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-          - $HOME/macports_cache
-    - stage: Test PyInstaller
-      os: osx
-      env:
-        - VERSION=3.5
-          SOURCE=macports
-          DEPENDENCIES=pip
-      script: py.test -n auto tests/unit tests/functional --ignore=tests/functional/test_libraries.py --ignore=tests/functional/test_hooks
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-          - $HOME/macports_cache
-    - stage: Test Libraries
-      os: osx
-      env:
-        - VERSION=3.5
-          SOURCE=macports
-          DEPENDENCIES=pip
-      script: py.test -n auto tests/functional/test_libraries.py tests/functional/test_hooks
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-          - $HOME/macports_cache
-
-    - stage: Cache
-      os: osx
-      env:
-        - VERSION=3.6
-          SOURCE=macports
-          DEPENDENCIES=pip
-      script: true
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-          - $HOME/macports_cache
-    - stage: Test PyInstaller
-      os: osx
-      env:
-        - VERSION=3.6
-          SOURCE=macports
-          DEPENDENCIES=pip
-      script: py.test -n auto tests/unit tests/functional --ignore=tests/functional/test_libraries.py --ignore=tests/functional/test_hooks
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-          - $HOME/macports_cache
-    - stage: Test Libraries
-      os: osx
-      env:
-        - VERSION=3.6
-          SOURCE=macports
-          DEPENDENCIES=pip
-      script: py.test -n auto tests/functional/test_libraries.py tests/functional/test_hooks
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-          - $HOME/macports_cache
-
-    - stage: Cache
-      os: osx
-      env:
-        - VERSION=3.7
-          SOURCE=macports
-          DEPENDENCIES=pip
-      script: true
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-          - $HOME/macports_cache
-    - stage: Test PyInstaller
-      os: osx
-      env:
-        - VERSION=3.7
-          SOURCE=macports
-          DEPENDENCIES=pip
-      script: py.test -n auto tests/unit tests/functional --ignore=tests/functional/test_libraries.py --ignore=tests/functional/test_hooks
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-          - $HOME/macports_cache
-    - stage: Test Libraries
-      os: osx
-      env:
-        - VERSION=3.7
-          SOURCE=macports
-          DEPENDENCIES=pip
-      script: py.test -n auto tests/functional/test_libraries.py tests/functional/test_hooks
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-          - $HOME/macports_cache
-
-    - stage: Cache
-      os: osx
-      env:
-        - VERSION=2
-          SOURCE=homebrew
-          DEPENDENCIES=pip
-      script: true
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-          - $HOME/Library/Caches/Homebrew
-    - stage: Test PyInstaller
-      os: osx
-      env:
-        - VERSION=2
-          SOURCE=homebrew
-          DEPENDENCIES=pip
-      script: py.test -n auto tests/unit tests/functional --ignore=tests/functional/test_libraries.py --ignore=tests/functional/test_hooks
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-          - $HOME/Library/Caches/Homebrew
-    - stage: Test Libraries
-      os: osx
-      env:
-        - VERSION=2
-          SOURCE=homebrew
-          DEPENDENCIES=pip
-      script: py.test -n auto tests/functional/test_libraries.py tests/functional/test_hooks
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-          - $HOME/Library/Caches/Homebrew
-
-    - stage: Cache
-      os: osx
-      env:
-        - VERSION=3
-          SOURCE=homebrew
-          DEPENDENCIES=pip
-      script: true
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-          - $HOME/Library/Caches/Homebrew
-    - stage: Test PyInstaller
-      os: osx
-      env:
-        - VERSION=3
-          SOURCE=homebrew
-          DEPENDENCIES=pip
-      script: py.test -n auto tests/unit tests/functional --ignore=tests/functional/test_libraries.py --ignore=tests/functional/test_hooks
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-          - $HOME/Library/Caches/Homebrew
-    - stage: Test Libraries
-      os: osx
-      env:
-        - VERSION=3
-          SOURCE=homebrew
-          DEPENDENCIES=pip
-      script: py.test -n auto tests/functional/test_libraries.py tests/functional/test_hooks
-      cache:
-        directories:
-          - $HOME/Library/Caches/pip
-          - $HOME/Library/Caches/Homebrew
+#    - stage: Cache
+#      os: osx
+#      env:
+#        - VERSION=2.7.15
+#          SOURCE=macpython
+#          DEPENDENCIES=pip
+#      script: true
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#    - stage: Test PyInstaller
+#      os: osx
+#      env:
+#        - VERSION=2.7.15
+#          SOURCE=macpython
+#          DEPENDENCIES=pip
+#      script: py.test -n auto tests/unit tests/functional --ignore=tests/functional/test_libraries.py --ignore=tests/functional/test_hooks
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#    - stage: Test Libraries
+#      os: osx
+#      env:
+#        - VERSION=2.7.15
+#          SOURCE=macpython
+#          DEPENDENCIES=pip
+#      script: py.test -n auto tests/functional/test_libraries.py tests/functional/test_hooks
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#
+#    - stage: Cache
+#      os: osx
+#      env:
+#        - VERSION=3.4.4
+#          SOURCE=macpython
+#          DEPENDENCIES=pip
+#      script: true
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#    - stage: Test PyInstaller
+#      os: osx
+#      env:
+#        - VERSION=3.4.4
+#          SOURCE=macpython
+#          DEPENDENCIES=pip
+#      script: py.test -n auto tests/unit tests/functional --ignore=tests/functional/test_libraries.py --ignore=tests/functional/test_hooks
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#    - stage: Test Libraries
+#      os: osx
+#      env:
+#        - VERSION=3.4.4
+#          SOURCE=macpython
+#          DEPENDENCIES=pip
+#      script: py.test -n auto tests/functional/test_libraries.py tests/functional/test_hooks
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#
+#    - stage: Cache
+#      os: osx
+#      env:
+#        - VERSION=3.5.4
+#          SOURCE=macpython
+#          DEPENDENCIES=pip
+#      script: true
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#    - stage: Test PyInstaller
+#      os: osx
+#      env:
+#        - VERSION=3.5.4
+#          SOURCE=macpython
+#          DEPENDENCIES=pip
+#      script: py.test -n auto tests/unit tests/functional --ignore=tests/functional/test_libraries.py --ignore=tests/functional/test_hooks
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#    - stage: Test Libraries
+#      os: osx
+#      env:
+#        - VERSION=3.5.4
+#          SOURCE=macpython
+#          DEPENDENCIES=pip
+#      script: py.test -n auto tests/functional/test_libraries.py tests/functional/test_hooks
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#
+#    - stage: Cache
+#      os: osx
+#      env:
+#        - VERSION=3.6.6
+#          SOURCE=macpython
+#          DEPENDENCIES=pip
+#      script: true
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#    - stage: Test PyInstaller
+#      os: osx
+#      env:
+#        - VERSION=3.6.6
+#          SOURCE=macpython
+#          DEPENDENCIES=pip
+#      script: py.test -n auto tests/unit tests/functional --ignore=tests/functional/test_libraries.py --ignore=tests/functional/test_hooks
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#    - stage: Test Libraries
+#      os: osx
+#      env:
+#        - VERSION=3.6.6
+#          SOURCE=macpython
+#          DEPENDENCIES=pip
+#      script: py.test -n auto tests/functional/test_libraries.py tests/functional/test_hooks
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#
+#    - stage: Cache
+#      os: osx
+#      env:
+#        - VERSION=3.7.0
+#          SOURCE=macpython
+#          DEPENDENCIES=pip
+#      script: true
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#    - stage: Test PyInstaller
+#      os: osx
+#      env:
+#        - VERSION=3.7.0
+#          SOURCE=macpython
+#          DEPENDENCIES=pip
+#      script: py.test -n auto tests/unit tests/functional --ignore=tests/functional/test_libraries.py --ignore=tests/functional/test_hooks
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#    - stage: Test Libraries
+#      os: osx
+#      env:
+#        - VERSION=3.7.0
+#          SOURCE=macpython
+#          DEPENDENCIES=pip
+#      script: py.test -n auto tests/functional/test_libraries.py tests/functional/test_hooks
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#
+#    - stage: Cache
+#      os: osx
+#      env:
+#        - VERSION=2.7
+#          SOURCE=macports
+#          DEPENDENCIES=pip
+#      script: true
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#          - $HOME/macports_cache
+#    - stage: Test PyInstaller
+#      os: osx
+#      env:
+#        - VERSION=2.7
+#          SOURCE=macports
+#          DEPENDENCIES=pip
+#      script: py.test -n auto tests/unit tests/functional --ignore=tests/functional/test_libraries.py --ignore=tests/functional/test_hooks
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#          - $HOME/macports_cache
+#    - stage: Test Libraries
+#      os: osx
+#      env:
+#        - VERSION=2.7
+#          SOURCE=macports
+#          DEPENDENCIES=pip
+#      script: py.test -n auto tests/functional/test_libraries.py tests/functional/test_hooks
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#          - $HOME/macports_cache
+#
+#    - stage: Cache
+#      os: osx
+#      env:
+#        - VERSION=3.4
+#          SOURCE=macports
+#          DEPENDENCIES=pip
+#      script: true
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#          - $HOME/macports_cache
+#    - stage: Test PyInstaller
+#      os: osx
+#      env:
+#        - VERSION=3.4
+#          SOURCE=macports
+#          DEPENDENCIES=pip
+#      script: py.test -n auto tests/unit tests/functional --ignore=tests/functional/test_libraries.py --ignore=tests/functional/test_hooks
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#          - $HOME/macports_cache
+#    - stage: Test Libraries
+#      os: osx
+#      env:
+#        - VERSION=3.4
+#          SOURCE=macports
+#          DEPENDENCIES=pip
+#      script: py.test -n auto tests/functional/test_libraries.py tests/functional/test_hooks
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#          - $HOME/macports_cache
+#
+#    - stage: Cache
+#      os: osx
+#      env:
+#        - VERSION=3.5
+#          SOURCE=macports
+#          DEPENDENCIES=pip
+#      script: true
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#          - $HOME/macports_cache
+#    - stage: Test PyInstaller
+#      os: osx
+#      env:
+#        - VERSION=3.5
+#          SOURCE=macports
+#          DEPENDENCIES=pip
+#      script: py.test -n auto tests/unit tests/functional --ignore=tests/functional/test_libraries.py --ignore=tests/functional/test_hooks
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#          - $HOME/macports_cache
+#    - stage: Test Libraries
+#      os: osx
+#      env:
+#        - VERSION=3.5
+#          SOURCE=macports
+#          DEPENDENCIES=pip
+#      script: py.test -n auto tests/functional/test_libraries.py tests/functional/test_hooks
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#          - $HOME/macports_cache
+#
+#    - stage: Cache
+#      os: osx
+#      env:
+#        - VERSION=3.6
+#          SOURCE=macports
+#          DEPENDENCIES=pip
+#      script: true
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#          - $HOME/macports_cache
+#    - stage: Test PyInstaller
+#      os: osx
+#      env:
+#        - VERSION=3.6
+#          SOURCE=macports
+#          DEPENDENCIES=pip
+#      script: py.test -n auto tests/unit tests/functional --ignore=tests/functional/test_libraries.py --ignore=tests/functional/test_hooks
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#          - $HOME/macports_cache
+#    - stage: Test Libraries
+#      os: osx
+#      env:
+#        - VERSION=3.6
+#          SOURCE=macports
+#          DEPENDENCIES=pip
+#      script: py.test -n auto tests/functional/test_libraries.py tests/functional/test_hooks
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#          - $HOME/macports_cache
+#
+#    - stage: Cache
+#      os: osx
+#      env:
+#        - VERSION=3.7
+#          SOURCE=macports
+#          DEPENDENCIES=pip
+#      script: true
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#          - $HOME/macports_cache
+#    - stage: Test PyInstaller
+#      os: osx
+#      env:
+#        - VERSION=3.7
+#          SOURCE=macports
+#          DEPENDENCIES=pip
+#      script: py.test -n auto tests/unit tests/functional --ignore=tests/functional/test_libraries.py --ignore=tests/functional/test_hooks
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#          - $HOME/macports_cache
+#    - stage: Test Libraries
+#      os: osx
+#      env:
+#        - VERSION=3.7
+#          SOURCE=macports
+#          DEPENDENCIES=pip
+#      script: py.test -n auto tests/functional/test_libraries.py tests/functional/test_hooks
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#          - $HOME/macports_cache
+#
+#    - stage: Cache
+#      os: osx
+#      env:
+#        - VERSION=2
+#          SOURCE=homebrew
+#          DEPENDENCIES=pip
+#      script: true
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#          - $HOME/Library/Caches/Homebrew
+#    - stage: Test PyInstaller
+#      os: osx
+#      env:
+#        - VERSION=2
+#          SOURCE=homebrew
+#          DEPENDENCIES=pip
+#      script: py.test -n auto tests/unit tests/functional --ignore=tests/functional/test_libraries.py --ignore=tests/functional/test_hooks
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#          - $HOME/Library/Caches/Homebrew
+#    - stage: Test Libraries
+#      os: osx
+#      env:
+#        - VERSION=2
+#          SOURCE=homebrew
+#          DEPENDENCIES=pip
+#      script: py.test -n auto tests/functional/test_libraries.py tests/functional/test_hooks
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#          - $HOME/Library/Caches/Homebrew
+#
+#    - stage: Cache
+#      os: osx
+#      env:
+#        - VERSION=3
+#          SOURCE=homebrew
+#          DEPENDENCIES=pip
+#      script: true
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#          - $HOME/Library/Caches/Homebrew
+#    - stage: Test PyInstaller
+#      os: osx
+#      env:
+#        - VERSION=3
+#          SOURCE=homebrew
+#          DEPENDENCIES=pip
+#      script: py.test -n auto tests/unit tests/functional --ignore=tests/functional/test_libraries.py --ignore=tests/functional/test_hooks
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#          - $HOME/Library/Caches/Homebrew
+#    - stage: Test Libraries
+#      os: osx
+#      env:
+#        - VERSION=3
+#          SOURCE=homebrew
+#          DEPENDENCIES=pip
+#      script: py.test -n auto tests/functional/test_libraries.py tests/functional/test_hooks
+#      cache:
+#        directories:
+#          - $HOME/Library/Caches/pip
+#          - $HOME/Library/Caches/Homebrew
 
     - stage: Cache
       os: osx

@@ -33,9 +33,9 @@ function install_dependencies {
         port_install qt4-mac
         port_install py$PYTHON_VERSION-pyqt4
         port_install qt5
-        port_install py$PYTHON_VERSION-pyqt5 +webengine
-        port_install py$PYTHON_VERSION-pyside
-        port_install py$PYTHON_VERSION-pyside2
+        #port_install py$PYTHON_VERSION-pyqt5 +webengine
+        #port_install py$PYTHON_VERSION-pyside
+        #port_install py$PYTHON_VERSION-pyside2
         port_install py$PYTHON_VERSION-tkinter
         port_install py$PYTHON_VERSION-enchant
         port_install py$PYTHON_VERSION-gevent
@@ -48,17 +48,16 @@ function install_dependencies {
         travis_fold start dependencies_homebrew
         travis_time_start
         /usr/local/bin/pip uninstall -y numpy || true
-        brew cask uninstall oclint || true
         if [ $PYTHON_VERSION = 2 ]; then
             brew install python-markdown
-            brew install numpy
+            brew upgrade numpy || brew install numpy
             brew install wxpython
             brew install qt
             brew install pyqt5
             brew install pyside
             brew install pygobject3
         elif [ $PYTHON_VERSION = 3 ]; then
-            brew install numpy
+            brew upgrade numpy || brew install numpy
             brew install qt
             brew install pyqt5
             brew install pyside
