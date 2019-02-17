@@ -49,24 +49,20 @@ function install_dependencies {
         /usr/local/bin/pip uninstall -y numpy || true
         brew cask uninstall oclint || true
         if [ $PYTHON_VERSION = 2 ]; then
-            brew install --build-bottle python-markdown --without-python
-            brew install --build-bottle numpy --without-python
+            brew install python-markdown
+            brew install numpy
             brew install wxpython
-            brew install --build-bottle enchant --with-python@2
-#            brew install qt
-            brew install qt5
-            travis_wait 30 brew install --build-bottle pyqt5 --without-python
-#            brew install pyside
-            brew install --build-bottle pygobject3 --with-python@2 --without-python
-            brew install --build-bottle gst-python --with-python@2 --without-python
+            brew install qt
+            brew install pyqt5
+            brew install pyside
+            brew install pygobject3
         elif [ $PYTHON_VERSION = 3 ]; then
-            brew install --build-bottle numpy --without-python@2
-#            brew install qt
-            brew install qt5
-            travis-pls brew install --build-bottle pyqt5 --without-python@2
-#            travis_wait brew install --build-bottle pyside --with-python3 --without-python
-            brew install --build-bottle pygobject3
-            brew install --build-bottle gst-python
+            brew install numpy
+            brew install qt
+            brew install pyqt5
+            brew install pyside
+            brew install pygobject3
+            brew install gst-python
         fi
         travis_time_finish
         travis_fold end dependencies_homebrew
