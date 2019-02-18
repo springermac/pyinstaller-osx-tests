@@ -98,7 +98,7 @@ jobs:
     - stage: Cache
       os: osx
       env:
-        - VERSION=3.6.6
+        - VERSION=3.6.8
           SOURCE=macpython
           DEPENDENCIES=pip
       script: true
@@ -108,7 +108,7 @@ jobs:
     - stage: Test PyInstaller
       os: osx
       env:
-        - VERSION=3.6.6
+        - VERSION=3.6.8
           SOURCE=macpython
           DEPENDENCIES=pip
       script: py.test -n auto tests/unit tests/functional --ignore=tests/functional/test_libraries.py --ignore=tests/functional/test_hooks
@@ -118,7 +118,7 @@ jobs:
     - stage: Test Libraries
       os: osx
       env:
-        - VERSION=3.6.6
+        - VERSION=3.6.8
           SOURCE=macpython
           DEPENDENCIES=pip
       script: py.test -n auto tests/functional/test_libraries.py tests/functional/test_hooks
@@ -129,7 +129,7 @@ jobs:
     - stage: Cache
       os: osx
       env:
-        - VERSION=3.7.0
+        - VERSION=3.7.2
           SOURCE=macpython
           DEPENDENCIES=pip
       script: true
@@ -139,7 +139,7 @@ jobs:
     - stage: Test PyInstaller
       os: osx
       env:
-        - VERSION=3.7.0
+        - VERSION=3.7.2
           SOURCE=macpython
           DEPENDENCIES=pip
       script: py.test -n auto tests/unit tests/functional --ignore=tests/functional/test_libraries.py --ignore=tests/functional/test_hooks
@@ -149,7 +149,7 @@ jobs:
     - stage: Test Libraries
       os: osx
       env:
-        - VERSION=3.7.0
+        - VERSION=3.7.2
           SOURCE=macpython
           DEPENDENCIES=pip
       script: py.test -n auto tests/functional/test_libraries.py tests/functional/test_hooks
