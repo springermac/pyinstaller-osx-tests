@@ -5,7 +5,7 @@ function port_install {
     PORT=$@
     BUILD_FROM_SOURCE=false
     (sudo port -bN install --no-rev-upgrade $PORT || (travis_wait 30 sudo port -pN install --no-rev-upgrade $PORT; BUILD_FROM_SOURCE=true)) | cat
-    if [ BUILD_FROM_SOURCE = true ]; then
+    if [ $BUILD_FROM_SOURCE = true ]; then
         curl -LO --retry 3 https://raw.github.com/mernst/plume-lib/master/bin/trigger-travis.sh
         sh trigger-travis.sh --pro --branch gst springermac audio $TRAVIS_ACCESS_TOKEN
         exit 1
