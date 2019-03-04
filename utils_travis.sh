@@ -10,7 +10,7 @@ function port_install {
         echo "Download"
         curl -LO --retry 3 https://raw.github.com/mernst/plume-lib/master/bin/trigger-travis.sh
         echo "Trigger"
-        sudo sh trigger-travis.sh --pro --branch gst springermac audio $TRAVIS_ACCESS_TOKEN
+        sh trigger-travis.sh --pro --branch develop springermac pyinstaller-osx-tests $TRAVIS_ACCESS_TOKEN
         echo "Exit"
         exit 1
     fi
