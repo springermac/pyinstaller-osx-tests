@@ -9,10 +9,8 @@ function port_install {
         travis_wait 30 sudo port -pN install --no-rev-upgrade $PORT
         echo "Download"
         curl -LO --retry 3 https://raw.github.com/mernst/plume-lib/master/bin/trigger-travis.sh
-        echo "Trigger"
-        sh trigger-travis.sh --pro --branch develop springermac pyinstaller-osx-tests $TRAVIS_ACCESS_TOKEN
-        echo "Exit"
-        exit 1
+        #echo "Trigger"
+        #sh trigger-travis.sh --pro --branch develop springermac pyinstaller-osx-tests $TRAVIS_ACCESS_TOKEN
     fi
 }
 
