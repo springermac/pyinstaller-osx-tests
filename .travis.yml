@@ -5,7 +5,7 @@ jobs:
 #    - stage: Cache
 #      os: osx
 #      env:
-#        - VERSION=2.7.15
+#        - VERSION=2.7.16
 #          SOURCE=macpython
 #          DEPENDENCIES=pip
 #      script: true
@@ -15,7 +15,7 @@ jobs:
 #    - stage: Test PyInstaller
 #      os: osx
 #      env:
-#        - VERSION=2.7.15
+#        - VERSION=2.7.16
 #          SOURCE=macpython
 #          DEPENDENCIES=pip
 #      script: py.test -n auto tests/unit tests/functional --ignore=tests/functional/test_libraries.py --ignore=tests/functional/test_hooks
@@ -25,7 +25,7 @@ jobs:
 #    - stage: Test Libraries
 #      os: osx
 #      env:
-#        - VERSION=2.7.15
+#        - VERSION=2.7.16
 #          SOURCE=macpython
 #          DEPENDENCIES=pip
 #      script: py.test -n auto tests/functional/test_libraries.py tests/functional/test_hooks
@@ -98,7 +98,7 @@ jobs:
 #    - stage: Cache
 #      os: osx
 #      env:
-#        - VERSION=3.7.2
+#        - VERSION=3.7.4
 #          SOURCE=macpython
 #          DEPENDENCIES=pip
 #      script: true
@@ -108,7 +108,7 @@ jobs:
 #    - stage: Test PyInstaller
 #      os: osx
 #      env:
-#        - VERSION=3.7.2
+#        - VERSION=3.7.4
 #          SOURCE=macpython
 #          DEPENDENCIES=pip
 #      script: py.test -n auto tests/unit tests/functional --ignore=tests/functional/test_libraries.py --ignore=tests/functional/test_hooks
@@ -118,7 +118,7 @@ jobs:
 #    - stage: Test Libraries
 #      os: osx
 #      env:
-#        - VERSION=3.7.2
+#        - VERSION=3.7.4
 #          SOURCE=macpython
 #          DEPENDENCIES=pip
 #      script: py.test -n auto tests/functional/test_libraries.py tests/functional/test_hooks
