@@ -1,9 +1,10 @@
 language: generic
+os: osx
+osx_image: xcode10.2
 
 jobs:
   include:
 #    - stage: Cache
-#      os: osx
 #      env:
 #        - VERSION=2.7.16
 #          SOURCE=macpython
@@ -13,7 +14,6 @@ jobs:
 #        directories:
 #          - $HOME/Library/Caches/pip
 #    - stage: Test PyInstaller
-#      os: osx
 #      env:
 #        - VERSION=2.7.16
 #          SOURCE=macpython
@@ -23,7 +23,6 @@ jobs:
 #        directories:
 #          - $HOME/Library/Caches/pip
 #    - stage: Test Libraries
-#      os: osx
 #      env:
 #        - VERSION=2.7.16
 #          SOURCE=macpython
@@ -34,7 +33,6 @@ jobs:
 #          - $HOME/Library/Caches/pip
 #
 #    - stage: Cache
-#      os: osx
 #      env:
 #        - VERSION=3.5.4
 #          SOURCE=macpython
@@ -44,7 +42,6 @@ jobs:
 #        directories:
 #          - $HOME/Library/Caches/pip
 #    - stage: Test PyInstaller
-#      os: osx
 #      env:
 #        - VERSION=3.5.4
 #          SOURCE=macpython
@@ -54,7 +51,6 @@ jobs:
 #        directories:
 #          - $HOME/Library/Caches/pip
 #    - stage: Test Libraries
-#      os: osx
 #      env:
 #        - VERSION=3.5.4
 #          SOURCE=macpython
@@ -65,7 +61,6 @@ jobs:
 #          - $HOME/Library/Caches/pip
 #
 #    - stage: Cache
-#      os: osx
 #      env:
 #        - VERSION=3.6.8
 #          SOURCE=macpython
@@ -75,7 +70,6 @@ jobs:
 #        directories:
 #          - $HOME/Library/Caches/pip
 #    - stage: Test PyInstaller
-#      os: osx
 #      env:
 #        - VERSION=3.6.8
 #          SOURCE=macpython
@@ -85,7 +79,6 @@ jobs:
 #        directories:
 #          - $HOME/Library/Caches/pip
 #    - stage: Test Libraries
-#      os: osx
 #      env:
 #        - VERSION=3.6.8
 #          SOURCE=macpython
@@ -96,7 +89,6 @@ jobs:
 #          - $HOME/Library/Caches/pip
 #
 #    - stage: Cache
-#      os: osx
 #      env:
 #        - VERSION=3.7.4
 #          SOURCE=macpython
@@ -106,7 +98,6 @@ jobs:
 #        directories:
 #          - $HOME/Library/Caches/pip
 #    - stage: Test PyInstaller
-#      os: osx
 #      env:
 #        - VERSION=3.7.4
 #          SOURCE=macpython
@@ -116,7 +107,6 @@ jobs:
 #        directories:
 #          - $HOME/Library/Caches/pip
 #    - stage: Test Libraries
-#      os: osx
 #      env:
 #        - VERSION=3.7.4
 #          SOURCE=macpython
@@ -127,7 +117,6 @@ jobs:
 #          - $HOME/Library/Caches/pip
 #
 #    - stage: Cache
-#      os: osx
 #      env:
 #        - VERSION=2.7
 #          SOURCE=macports
@@ -138,7 +127,6 @@ jobs:
 #          - $HOME/Library/Caches/pip
 #          - $HOME/macports_cache
 #    - stage: Test PyInstaller
-#      os: osx
 #      env:
 #        - VERSION=2.7
 #          SOURCE=macports
@@ -149,7 +137,6 @@ jobs:
 #          - $HOME/Library/Caches/pip
 #          - $HOME/macports_cache
 #    - stage: Test Libraries
-#      os: osx
 #      env:
 #        - VERSION=2.7
 #          SOURCE=macports
@@ -161,7 +148,6 @@ jobs:
 #          - $HOME/macports_cache
 #
 #    - stage: Cache
-#      os: osx
 #      env:
 #        - VERSION=3.5
 #          SOURCE=macports
@@ -172,7 +158,6 @@ jobs:
 #          - $HOME/Library/Caches/pip
 #          - $HOME/macports_cache
 #    - stage: Test PyInstaller
-#      os: osx
 #      env:
 #        - VERSION=3.5
 #          SOURCE=macports
@@ -183,7 +168,6 @@ jobs:
 #          - $HOME/Library/Caches/pip
 #          - $HOME/macports_cache
 #    - stage: Test Libraries
-#      os: osx
 #      env:
 #        - VERSION=3.5
 #          SOURCE=macports
@@ -195,7 +179,6 @@ jobs:
 #          - $HOME/macports_cache
 #
 #    - stage: Cache
-#      os: osx
 #      env:
 #        - VERSION=3.6
 #          SOURCE=macports
@@ -206,7 +189,6 @@ jobs:
 #          - $HOME/Library/Caches/pip
 #          - $HOME/macports_cache
 #    - stage: Test PyInstaller
-#      os: osx
 #      env:
 #        - VERSION=3.6
 #          SOURCE=macports
@@ -217,7 +199,6 @@ jobs:
 #          - $HOME/Library/Caches/pip
 #          - $HOME/macports_cache
 #    - stage: Test Libraries
-#      os: osx
 #      env:
 #        - VERSION=3.6
 #          SOURCE=macports
@@ -229,7 +210,6 @@ jobs:
 #          - $HOME/macports_cache
 #
 #    - stage: Cache
-#      os: osx
 #      env:
 #        - VERSION=3.7
 #          SOURCE=macports
@@ -240,7 +220,6 @@ jobs:
 #          - $HOME/Library/Caches/pip
 #          - $HOME/macports_cache
 #    - stage: Test PyInstaller
-#      os: osx
 #      env:
 #        - VERSION=3.7
 #          SOURCE=macports
@@ -251,7 +230,6 @@ jobs:
 #          - $HOME/Library/Caches/pip
 #          - $HOME/macports_cache
 #    - stage: Test Libraries
-#      os: osx
 #      env:
 #        - VERSION=3.7
 #          SOURCE=macports
@@ -263,7 +241,6 @@ jobs:
 #          - $HOME/macports_cache
 #
 #    - stage: Cache
-#      os: osx
 #      env:
 #        - VERSION=2
 #          SOURCE=homebrew
@@ -274,7 +251,6 @@ jobs:
 #          - $HOME/Library/Caches/pip
 #          - $HOME/Library/Caches/Homebrew
 #    - stage: Test PyInstaller
-#      os: osx
 #      env:
 #        - VERSION=2
 #          SOURCE=homebrew
@@ -285,7 +261,6 @@ jobs:
 #          - $HOME/Library/Caches/pip
 #          - $HOME/Library/Caches/Homebrew
 #    - stage: Test Libraries
-#      os: osx
 #      env:
 #        - VERSION=2
 #          SOURCE=homebrew
@@ -297,7 +272,6 @@ jobs:
 #          - $HOME/Library/Caches/Homebrew
 #
 #    - stage: Cache
-#      os: osx
 #      env:
 #        - VERSION=3
 #          SOURCE=homebrew
@@ -308,7 +282,6 @@ jobs:
 #          - $HOME/Library/Caches/pip
 #          - $HOME/Library/Caches/Homebrew
 #    - stage: Test PyInstaller
-#      os: osx
 #      env:
 #        - VERSION=3
 #          SOURCE=homebrew
@@ -319,7 +292,6 @@ jobs:
 #          - $HOME/Library/Caches/pip
 #          - $HOME/Library/Caches/Homebrew
 #    - stage: Test Libraries
-#      os: osx
 #      env:
 #        - VERSION=3
 #          SOURCE=homebrew
