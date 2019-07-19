@@ -11,53 +11,43 @@ test_pyinstaller_task:
         SOURCE: macpython
         DEPENDENCIES: pip
         cache:
-          folder:
-            - $HOME/Library/Caches/pip
+          folder: $HOME/Library/Caches/pip
     - env:
         VERSION: 3.5.4
         SOURCE: macpython
         DEPENDENCIES: pip
         cache:
-          folder:
-            - $HOME/Library/Caches/pip
+          folder: $HOME/Library/Caches/pip
     - env:
         VERSION: 3.6.8
         SOURCE: macpython
         DEPENDENCIES: pip
         cache:
-          folder:
-            - $HOME/Library/Caches/pip
+          folder: $HOME/Library/Caches/pip
     - env:
         VERSION: 3.7.4
         SOURCE: macpython
         DEPENDENCIES: pip
         cache:
-          folder:
-            - $HOME/Library/Caches/pip
+          folder: $HOME/Library/Caches/pip
     - env:
         VERSION: 2
         SOURCE: homebrew
         DEPENDENCIES: pip
         cache:
-          folder:
-            - $HOME/Library/Caches/pip
-            - $HOME/Library/Caches/Homebrew
+          folder: $HOME/Library/Caches/pip
     - env:
         VERSION: 3
         SOURCE: homebrew
         DEPENDENCIES: pip
         cache:
-          folder:
-            - $HOME/Library/Caches/pip
-            - $HOME/Library/Caches/Homebrew
+          folder: $HOME/Library/Caches/pip
     - env:
         VERSION: 2.7
         SOURCE: macports
         DEPENDENCIES: pip
       cache:
-        folder:
-          - $CIRRUS_WORKING_DIR/macports_cache
-          - $HOME/Library/Caches/pip
+        folder: $CIRRUS_WORKING_DIR/macports_cache
         populate_script:
           - source $CIRRUS_WORKING_DIR/utils_cirrus.sh
           - register_cache
@@ -66,9 +56,7 @@ test_pyinstaller_task:
         SOURCE: macports
         DEPENDENCIES: pip
       cache:
-        folder:
-          - $CIRRUS_WORKING_DIR/macports_cache
-          - $HOME/Library/Caches/pip
+        folder: $CIRRUS_WORKING_DIR/macports_cache
         populate_script:
           - source $CIRRUS_WORKING_DIR/utils_cirrus.sh
           - register_cache
@@ -77,9 +65,7 @@ test_pyinstaller_task:
         SOURCE: macports
         DEPENDENCIES: pip
       cache:
-        folder:
-          - $CIRRUS_WORKING_DIR/macports_cache
-          - $HOME/Library/Caches/pip
+        folder: $CIRRUS_WORKING_DIR/macports_cache
         populate_script:
           - source $CIRRUS_WORKING_DIR/utils_cirrus.sh
           - register_cache
@@ -88,9 +74,7 @@ test_pyinstaller_task:
         SOURCE: macports
         DEPENDENCIES: pip
       cache:
-        folder:
-          - $CIRRUS_WORKING_DIR/macports_cache
-          - $HOME/Library/Caches/pip
+        folder: $CIRRUS_WORKING_DIR/macports_cache
         populate_script:
           - source $CIRRUS_WORKING_DIR/utils_cirrus.sh
           - register_cache
