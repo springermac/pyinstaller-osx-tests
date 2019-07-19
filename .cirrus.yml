@@ -5,17 +5,23 @@ test_pip_macpython_task:
   env:
     PYI_COMMIT: green-tests
     REPO_DIR: pyinstaller
-    SOURCE: macpython
-    DEPENDENCIES: pip
   matrix:
     - env:
         VERSION: 2.7.16
+        SOURCE: macpython
+        DEPENDENCIES: pip
     - env:
         VERSION: 3.5.4
+        SOURCE: macpython
+        DEPENDENCIES: pip
     - env:
         VERSION: 3.6.8
+        SOURCE: macpython
+        DEPENDENCIES: pip
     - env:
         VERSION: 3.7.4
+        SOURCE: macpython
+        DEPENDENCIES: pip
   install_script:
     - git submodule update --init --recursive
     - source terryfy/travis_tools.sh
@@ -33,6 +39,7 @@ test_pip_macpython_task:
     - cd $CIRRUS_WORKING_DIR/$REPO_DIR
     - $PIP_CMD install --progress-bar=off -e .
     - ${PIP_CMD} install --progress-bar=off -U pip
+    - ${PIP_CMD} install --progress-bar=off -U certifi
     - ${PIP_CMD} install --progress-bar=off -r $CIRRUS_WORKING_DIR/$REPO_DIR/tests/requirements-tools.txt | cat
     - install_dependencies
 
@@ -40,13 +47,15 @@ test_pip_homebrew_task:
   env:
     PYI_COMMIT: green-tests
     REPO_DIR: pyinstaller
-    SOURCE: homebrew
-    DEPENDENCIES: pip
   matrix:
     - env:
         VERSION: 2
+        SOURCE: homebrew
+        DEPENDENCIES: pip
     - env:
         VERSION: 3
+        SOURCE: homebrew
+        DEPENDENCIES: pip
   install_script:
     - git submodule update --init --recursive
     - source terryfy/travis_tools.sh
@@ -71,17 +80,23 @@ test_pip_macports_task:
   env:
     PYI_COMMIT: green-tests
     REPO_DIR: pyinstaller
-    SOURCE: macports
-    DEPENDENCIES: pip
   matrix:
     - env:
         VERSION: 2.7
+        SOURCE: macports
+        DEPENDENCIES: pip
     - env:
         VERSION: 3.5
+        SOURCE: macports
+        DEPENDENCIES: pip
     - env:
         VERSION: 3.6
+        SOURCE: macports
+        DEPENDENCIES: pip
     - env:
         VERSION: 3.7
+        SOURCE: macports
+        DEPENDENCIES: pip
   install_script:
     - git submodule update --init --recursive
     - source terryfy/travis_tools.sh
