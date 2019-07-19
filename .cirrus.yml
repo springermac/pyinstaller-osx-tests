@@ -1,5 +1,5 @@
 osx_instance:
-  image: high-sierra-xcode-9.4.1
+  image: mojave-xcode-10.2
 
 test_pip_macpython_task:
   env:
@@ -9,13 +9,13 @@ test_pip_macpython_task:
     DEPENDENCIES: pip
   matrix:
     - env:
-        VERSION: 2.7.15
+        VERSION: 2.7.16
     - env:
         VERSION: 3.5.4
     - env:
-        VERSION: 3.6.6
+        VERSION: 3.6.8
     - env:
-        VERSION: 3.7.0
+        VERSION: 3.7.4
   install_script:
     - git submodule update --init --recursive
     - source terryfy/travis_tools.sh
@@ -31,9 +31,9 @@ test_pip_macpython_task:
     - cd $CIRRUS_WORKING_DIR/$REPO_DIR/bootloader
     - $PYTHON_EXE waf distclean all
     - cd $CIRRUS_WORKING_DIR/$REPO_DIR
-    - $PIP_CMD install -e .
-    - ${PIP_CMD} install -U pip
-    - ${PIP_CMD} install -r $CIRRUS_WORKING_DIR/$REPO_DIR/tests/requirements-tools.txt | cat
+    - $PIP_CMD install --progress-bar=off -e .
+    - ${PIP_CMD} install --progress-bar=off -U pip
+    - ${PIP_CMD} install --progress-bar=off -r $CIRRUS_WORKING_DIR/$REPO_DIR/tests/requirements-tools.txt | cat
     - install_dependencies
 
 test_pip_homebrew_task:
@@ -62,9 +62,9 @@ test_pip_homebrew_task:
     - cd $CIRRUS_WORKING_DIR/$REPO_DIR/bootloader
     - $PYTHON_EXE waf distclean all
     - cd $CIRRUS_WORKING_DIR/$REPO_DIR
-    - $PIP_CMD install -e .
-    - ${PIP_CMD} install -U pip
-    - ${PIP_CMD} install -r $CIRRUS_WORKING_DIR/$REPO_DIR/tests/requirements-tools.txt | cat
+    - $PIP_CMD install --progress-bar=off -e .
+    - ${PIP_CMD} install --progress-bar=off -U pip
+    - ${PIP_CMD} install --progress-bar=off -r $CIRRUS_WORKING_DIR/$REPO_DIR/tests/requirements-tools.txt | cat
     - install_dependencies
 
 test_pip_macports_task:
@@ -97,9 +97,9 @@ test_pip_macports_task:
     - cd $CIRRUS_WORKING_DIR/$REPO_DIR/bootloader
     - $PYTHON_EXE waf distclean all
     - cd $CIRRUS_WORKING_DIR/$REPO_DIR
-    - $PIP_CMD install -e .
-    - ${PIP_CMD} install -U pip
-    - ${PIP_CMD} install -r $CIRRUS_WORKING_DIR/$REPO_DIR/tests/requirements-tools.txt | cat
+    - $PIP_CMD install --progress-bar=off -e .
+    - ${PIP_CMD} install --progress-bar=off -U pip
+    - ${PIP_CMD} install --progress-bar=off -r $CIRRUS_WORKING_DIR/$REPO_DIR/tests/requirements-tools.txt | cat
     - install_dependencies
 
 #test_task:
