@@ -114,11 +114,13 @@ function prep_cache {
             openssl rsa -in $CIRRUS_WORKING_DIR/macports_cache/local-privkey.pem -pubout -out $CIRRUS_WORKING_DIR/macports_cache/local-pubkey.pem
         fi
         sign_archives
+        echo "Move"
         sudo rm -rf $CIRRUS_WORKING_DIR/macports_cache/distfiles
         sudo rm -rf $CIRRUS_WORKING_DIR/macports_cache/software
         sudo mv /opt/local/var/macports/distfiles $CIRRUS_WORKING_DIR/macports_cache/distfiles
         sudo mv /opt/local/var/macports/software $CIRRUS_WORKING_DIR/macports_cache/software
         if [ -d "$CIRRUS_WORKING_DIR/macports_cache/ports" ]; then rm -rf $CIRRUS_WORKING_DIR/macports_cache/ports; fi
+        ls -l $CIRRUS_WORKING_DIR/macports_cache
     fi
     if [ $SOURCE = homebrew ]; then
         brew cleanup -s
